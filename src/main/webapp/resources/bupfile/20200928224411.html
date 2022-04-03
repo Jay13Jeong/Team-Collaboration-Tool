@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SVG, JS, CSS로 만드는 라이언 로그인 폼 - 코드쓰는사람</title>
+<link rel='dns-prefetch' href='//taegon.kim' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel='dns-prefetch' href='//jetpack.wordpress.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//public-api.wordpress.com' />
+<link rel='dns-prefetch' href='//0.gravatar.com' />
+<link rel='dns-prefetch' href='//1.gravatar.com' />
+<link rel='dns-prefetch' href='//2.gravatar.com' />
+<link rel='dns-prefetch' href='//widgets.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="코드쓰는사람 &raquo; Feed" href="https://taegon.kim/feed" />
+<link rel="alternate" type="application/rss+xml" title="코드쓰는사람 &raquo; Comments Feed" href="https://taegon.kim/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="코드쓰는사람 &raquo; SVG, JS, CSS로 만드는 라이언 로그인 폼 Comments Feed" href="https://taegon.kim/archives/9658/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/taegon.kim\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.1"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://taegon.kim/wp-includes/css/dist/block-library/style.min.css?ver=5.5.1' type='text/css' media='all' />
+<style id='wp-block-library-inline-css' type='text/css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link crossorigin="anonymous" rel='stylesheet' id='themeone-fonts-nm-css'  href='https://fonts.googleapis.com/css?family=Nanum+Myeongjo%3A400%2C800&#038;ver=20180628' type='text/css' media='all' />
+<link crossorigin="anonymous" rel='stylesheet' id='themeone-fonts-sm-css'  href='https://fonts.googleapis.com/css?family=Song+Myung&#038;ver=20180628' type='text/css' media='all' />
+<link rel='stylesheet' id='themeone-fonts-css'  href='https://taegon.kim/wp-content/themes/themeone/fonts.css?ver=20180104' type='text/css' media='all' />
+<link rel='stylesheet' id='themeone-style-css'  href='https://taegon.kim/wp-content/themes/themeone/style.css?ver=20200714' type='text/css' media='all' />
+<link rel='stylesheet' id='social-logos-css'  href='https://taegon.kim/wp-content/plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=8.9' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://taegon.kim/wp-content/plugins/jetpack/css/jetpack.css?ver=8.9' type='text/css' media='all' />
+<script type='text/javascript' src='https://taegon.kim/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
+<script type='text/javascript' id='jetpack_related-posts-js-extra'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://taegon.kim/wp-content/plugins/jetpack/_inc/build/related-posts/related-posts.min.js?ver=20191011' id='jetpack_related-posts-js'></script>
+<link rel="https://api.w.org/" href="https://taegon.kim/wp-json/" /><link rel="alternate" type="application/json" href="https://taegon.kim/wp-json/wp/v2/posts/9658" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://taegon.kim/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://taegon.kim/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='SmartThings와 생각하는 냉장고' href='https://taegon.kim/archives/9646' />
+<link rel='next' title='산업별 자바스크립트 사용 현황' href='https://taegon.kim/archives/9716' />
+<meta name="generator" content="WordPress 5.5.1" />
+<link rel="canonical" href="https://taegon.kim/archives/9658/comment-page-2#comments" />
+<link rel='shortlink' href='https://wp.me/p7LwsZ-2vM' />
+<link rel="alternate" type="application/json+oembed" href="https://taegon.kim/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftaegon.kim%2Farchives%2F9658" />
+<link rel="alternate" type="text/xml+oembed" href="https://taegon.kim/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftaegon.kim%2Farchives%2F9658&#038;format=xml" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180258-4"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-180258-4');
+</script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css"><style type='text/css'>img#wpstats{display:none}</style><link rel="amphtml" href="https://taegon.kim/archives/9658/amp">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="SVG, JS, CSS로 만드는 라이언 로그인 폼" />
+<meta property="og:url" content="https://taegon.kim/archives/9658" />
+<meta property="og:description" content="시작하기에 앞서:&nbsp;&#039;라이언&#039;의 저작권은 (주)카카오에 있습니다. 이 코드는 학습용으로만 보고 실제 서비스에는 사용하지 마시기 바랍니다. 먼저 아래 동영상을 재생하여 실제 사용 영상을 살펴보세요. 페이지 제일 아래에는 실제 사용해 볼 수 있는 폼과 코드가 공개되어 있습니다. 얼마 전 LoginCritter라는 재밌는 프로젝트를 봤다. 로그인 정…" />
+<meta property="article:published_time" content="2018-05-14T00:30:10+00:00" />
+<meta property="article:modified_time" content="2019-03-06T15:17:54+00:00" />
+<meta property="og:site_name" content="코드쓰는사람" />
+<meta property="og:image" content="https://taegon.kim/wp-content/uploads/2018/05/스크린샷-2018-05-13-오전-3.09.58.png" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="805" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:site" content="@taggon" />
+<meta name="twitter:text:title" content="SVG, JS, CSS로 만드는 라이언 로그인 폼" />
+<meta name="twitter:image" content="https://taegon.kim/wp-content/uploads/2018/05/스크린샷-2018-05-13-오전-3.09.58.png?w=640" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- End Jetpack Open Graph Tags -->
+</head>
+<body class="post-template-default single single-post postid-9658 single-format-standard">
+<div id="site" class="site">
+	<script>
+	(function(){
+		// is Windows?
+		var os = /\b(?:(Win(?:dows|32|64))|(Mac(?:intosh|Intel| OS X)))\b/.exec( navigator.platform || navigator.userAgent );
+		if ( ! os ) return;
+		if ( os[1] ) {
+			document.body.className += ' win';
+		} else if ( os[2] ){
+			document.body.className += ' mac';
+		}
+	})();
+	</script>
+	<a class="screen-reader-text" href="#content">Skip to content</a>
+
+	<input type="checkbox" id="sidebar-toggle">
+	
+<aside id="sidebar" class="sidebar" role="complementary">
+	<div class="sidebar__title">
+		<label for="sidebar-toggle"><i class="icon icon-x"></i></label>
+	</div>
+	<div class="widget-area">
+		<section id="search-2" class="widget widget_search"></section><section id="pages-2" class="widget widget_pages"><h2 class="widget-title">Pages</h2>
+			<ul>
+				<li class="page_item page-item-1290"><a href="https://taegon.kim/lecture">강의</a></li>
+<li class="page_item page-item-2647"><a href="https://taegon.kim/guestbook">방명록</a></li>
+<li class="page_item page-item-943"><a href="https://taegon.kim/aboutme">소개</a></li>
+<li class="page_item page-item-3573"><a href="https://taegon.kim/books">책</a></li>
+			</ul>
+
+			</section>
+		<section id="recent-posts-2" class="widget widget_recent_entries">
+		<h2 class="widget-title">Recent Posts</h2>
+		<ul>
+											<li>
+					<a href="https://taegon.kim/archives/10126">Recoil 레시피: 스냅샷과 상태 모니터링</a>
+									</li>
+											<li>
+					<a href="https://taegon.kim/archives/10125">Recoil 레시피: 비동기 액션</a>
+									</li>
+											<li>
+					<a href="https://taegon.kim/archives/10105">Recoil 레시피: 소개</a>
+									</li>
+											<li>
+					<a href="https://taegon.kim/archives/10088">CSS 팁: 팝업창을 멋지게 만드는 너무 간단한 방법</a>
+									</li>
+											<li>
+					<a href="https://taegon.kim/archives/10074">스마트 에디터 TV 광고</a>
+									</li>
+					</ul>
+
+		</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>
+			<ul>
+					<li class="cat-item cat-item-10"><a href="https://taegon.kim/archives/category/tiptech">기술팁</a>
+</li>
+	<li class="cat-item cat-item-167"><a href="https://taegon.kim/archives/category/maxlinux">맥/리눅스</a>
+</li>
+	<li class="cat-item cat-item-47"><a href="https://taegon.kim/archives/category/translation">번역</a>
+</li>
+	<li class="cat-item cat-item-119"><a href="https://taegon.kim/archives/category/newcomment">새소식</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="https://taegon.kim/archives/category/trivia">생각</a>
+</li>
+	<li class="cat-item cat-item-126"><a href="https://taegon.kim/archives/category/projects">프로젝트</a>
+</li>
+			</ul>
+
+			</section><section id="meta-2" class="widget widget_meta"><h2 class="widget-title">Meta</h2>
+		<ul>
+						<li><a href="https://taegon.kim/wp-login.php">Log in</a></li>
+			<li><a href="https://taegon.kim/feed">Entries feed</a></li>
+			<li><a href="https://taegon.kim/comments/feed">Comments feed</a></li>
+
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>
+		</ul>
+
+		</section>	</div>
+</aside><!-- #sidebar -->
+
+	<header class="site-header" role="banner">
+		<div class="site-header__inner">
+			<div class="logo">
+				<label for="sidebar-toggle"><i class="icon icon-toggle-sidebar"></i></label>
+				<h1 class="site-title"><a href="https://taegon.kim" rel="nofollow">코드쓰는사람</a></h1>
+			</div>
+			<nav id="site-nav" class="site-nav" role="navigation">
+				<div id="primary-menu" class="menu"><ul>
+<li class="page_item page-item-943"><a href="https://taegon.kim/aboutme">소개</a></li>
+<li class="page_item page-item-3573"><a href="https://taegon.kim/books">책</a></li>
+<li class="page_item page-item-1290"><a href="https://taegon.kim/lecture">강의</a></li>
+<li class="page_item page-item-2647"><a href="https://taegon.kim/guestbook">방명록</a></li>
+</ul></div>
+			</nav>
+		</div>
+	</header>
+
+	<div id="content" class="site-content">
+
+	<div id="prmiary" class="content-area">
+		<main id="main" class="site-main" role="main">
+			<article id="post-9658" class="post-first post-9658 post type-post status-publish format-standard has-post-thumbnail hentry category-tiptech tag-css tag-css3 tag-javascript tag-js tag-svg tag-991 tag-990 tag-12 tag-35">
+	<header class="entry-header">
+		<div class="entry-thumbnail" style="background-image:url('https://taegon.kim/wp-content/uploads/2018/05/스크린샷-2018-05-13-오전-3.09.58.png')"></div>
+		<div class="entry-title-container">
+						<div class="entry-category">
+				<span class="cat-link"><a href="https://taegon.kim/archives/category/tiptech" rel="category tag">기술팁</a></span>
+			</div>
+						<h2 class="entry-title">
+				<a href="https://taegon.kim/archives/9658" rel="bookmark">SVG, JS, CSS로 만드는 라이언 로그인 폼</a>
+			</h2>
+			<h3 class="entry-subtitle">많은 노력이 들어간 작고 귀여운 애니메이션</h3>			<div class="entry-meta">
+				<time class="entry-date" datetime="2018-05-14T09:30:10+09:00">May 14, 2018</time>
+							</div>
+		</div>
+	</header><!-- .entry-header -->
+		<div class="entry-content">
+		<div class="entry-content__inner">
+			
+<p><strong>시작하기에 앞서:</strong>&nbsp;'라이언'의 저작권은 (주)카카오에 있습니다. 이 코드는 학습용으로만 보고 실제 서비스에는 사용하지 마시기 바랍니다.</p>
+
+
+
+<p>먼저 아래 동영상을 재생하여 실제 사용 영상을 살펴보세요. 페이지 제일 아래에는 실제 사용해 볼 수 있는 폼과 코드가 공개되어 있습니다.</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video controls src="https://taegon.kim/wp-content/uploads/2018/05/ryan-login.mp4"></video></figure>
+
+
+
+<p>얼마 전 <a href="https://github.com/cgoldsby/LoginCritter">LoginCritter</a>라는 재밌는 프로젝트를 봤다. 로그인 정보를 입력하는 동안 귀여운 곰이 커서를 따라 눈길을 주는 것이었다. 그 프로젝트는 iOS 기반이었기 때문에 웹으로 구현해봐도 재미있겠다는 생각이 들어 며칠 시간을 들여 로그인 폼을 작성해보았다. 자바스크립트 개발자로 살고 있음에도 SVG와 CSS3를 사용해 이런 애니메이션을 만들 일은 별로 없었는데 덕분에 배운 것도 많아서 여기에 정리해보려고 한다.</p>
+
+
+
+<h2>SVG로 라이언 그리기</h2>
+
+
+
+<p>처음엔 CSS만으로 그리는 것도 고려해봤는데 선 끝의 라운딩 처리나 코 주변 부분의 형태때문에 SVG로 구현하기로 결정했다. SVG도 공부해볼겸 해서 그래픽 도구를 일체 사용하지 않고 한땀한땀 코딩해서 만들었다.</p>
+
+
+
+<p>이미지는 120x120 크기를 가정하고 만들었지만 실제 이미지의 크기는 이보다 크게 표현되어 있다. SVG에는 <code>viewBox</code>라는 속성을 통해 SVG 이미지의 가로/세로 비율을 설정할 뿐만 아니라 내부에서 사용하는 좌표계의 기준 크기를 설정한다. 예를 들어 라이언 이미지의 SVG 선언은 다음과 같이 되어있다.</p>
+
+
+
+<pre class="wp-block-code lang-html"><code>&lt;svg id="ryan" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"></code></pre>
+
+
+
+<p>이제 실제 표현되는 크기에 상관없이 SVG 내에서 좌표<code>(120,120)</code>은 언제나 이미지 오른쪽 하단 꼭지점을 가리킨다. 그리고 얼굴의 바탕이 되는 동그라미는 다음과 같이 작성했다.</p>
+
+
+
+<pre class="wp-block-code lang-html"><code>&lt;circle cx="60" cy="60" r="40" fill="#e0a243" stroke="#000" stroke-width="2.5" /></code></pre>
+
+
+
+<p>여기서 <code>cx</code>와 <code>cy</code>는 원의 중심을 나타내고 <code>r</code>은 반지름을 의미한다. 따라서 위 코드는 SVG 이미지의 한 가운데를 중심으로 하는 반지름이&nbsp;<code>40</code>인 원을 그린다. 또한&nbsp;<code>fill</code>&nbsp;속성으로 얼굴 색상을 표현하고 <code>stroke</code>로 외곽선의 색상을, 그리고 <code>stroke-width</code>로 외곽선의 굵기를 설정하면 얼굴의 바탕을 얻을 수 있다. CSS를 사용해 SVG 엘리먼트의 배경색을 하얀색으로 설정하고 <code>border-radius</code>&nbsp;속성을 통해 원 형태로 만들고 나면 다음과 같은 이미지가 나타난다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="420" height="368" src="https://taegon.kim/wp-content/uploads/2018/05/image.png" alt="" class="wp-image-9673" srcset="https://taegon.kim/wp-content/uploads/2018/05/image.png 420w, https://taegon.kim/wp-content/uploads/2018/05/image-300x263.png 300w" sizes="(max-width: 420px) 100vw, 420px" /></figure></div>
+
+
+
+<p>눈과 눈썹은 선과 작은 원으로도 표현할 수 있는 단순한 형태이므로 먼저 작업했다. 다만, 얼굴 바탕과는 달리 눈 부위는 나중에 애니메이션을 위해 움직여야 할 부분이기 때문에 별도의 그룹으로 묶어서 표현했다. SVG에서는 <code>&lt;g&gt;</code>&nbsp;엘리먼트를 사용해서 다른 엘리먼트의 그룹을 만들 수 있다.</p>
+
+
+
+<pre class="wp-block-code lang-html"><code>&lt;g class="eyes">
+  &lt;!-- 왼쪽 눈과 눈썹-->
+  &lt;line x1="37" x2="50" y1="46" y2="46" stroke="#000" stroke-width="3" stroke-linecap="round" />
+  &lt;circle cx="44" cy="55" r="3" fill="#000" />
+  &lt;!-- 오른쪽 눈과 눈썹 -->
+  &lt;line x1="70" x2="83" y1="46" y2="46" stroke="#000" stroke-width="3" stroke-linecap="round" />
+  &lt;circle cx="76" cy="55" r="3" fill="#000" />
+&lt;/g></code></pre>
+
+
+
+<p>코 부분과 귀도 각각 그룹을 만들게 했다. 최종적으로 라이언 이미지에는 코 부분(<code>muzzle</code>), 귀(<code>ears</code>), 눈(<code>eyes</code>)이라는 세 그룹이 포함되어 있는데 한 그룹으로 만들지 않고 굳이 세 개로 나눈 이유는 잠시 후에 설명하겠다.</p>
+
+
+
+<p>얼굴 바탕과 눈, 눈썹을 제외한 나머지 부위는 조금 복잡한 형태라서 임의의 선을 따라 이미지를 그릴 수 있는 <code>&lt;path&gt;</code>엘리먼트를 사용해 그렸다. SVG의 <code>&lt;path&gt;</code>&nbsp;엘리먼트에는 <code>d</code>&nbsp;속성을 사용해 시작점과 커브 또는 라인 등의 경로를 정해줄 수 있다. 예를 들어, 몸의 바탕을 그린 다음 코드를 보자.</p>
+
+
+
+<pre class="wp-block-code lang-html"><code>&lt;path d="M0,150 C0,65 120,65 120,150" fill="#e0a243" stroke="#000" stroke-width="2.5" /></code></pre>
+
+
+
+<p>이 경로는 <code>(0,150)</code> 좌표에서 시작해서 <code>(120,150)</code>&nbsp;좌표에서 끝나는 커브를 그리는데 커브의 형태는 중간에 있는 <code>(0,65)</code>와 <code>(120,65)</code>&nbsp;좌표가 정한다. 네 개의 점이 이루는 베지에 곡선을 그린다. 다음 이미지를 보면 조금 더 이해가 쉬울 것이다. 각 곡선에서 하얀색 점이 양끝에 있는 점을 의미하고, 회색 점이 중간에 설정한 두 점을 의미한다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="355" height="355" src="https://taegon.kim/wp-content/uploads/2018/05/image-1.png" alt="" class="wp-image-9663" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-1.png 355w, https://taegon.kim/wp-content/uploads/2018/05/image-1-300x300.png 300w" sizes="(max-width: 355px) 100vw, 355px" /></figure></div>
+
+
+
+<p>위에 나온 <code>d</code>&nbsp;속성에&nbsp;<code>Cx1,y1 x2,y2 x3,y3</code>와 같은 곡선 부분을 더 추가하면 더 복잡한 곡선도 그릴 수 있다. 이를 통해 귀와 코 주변부를 그렸다. 수작업으로 경로를 일일이 작성하는 건 시간이 많이 걸리는 작업이다. 더군다나 시각적인 부분에 대한 감각이 부족한 경우라면 더 그렇다. 그래서 코 부분은 마름모꼴의 다각형을 그린 후 직선이 만나는 부분을 완만하게 처리하도록 설정하여 그렸다.</p>
+
+
+
+<pre class="wp-block-code lang-html"><code>&lt;polygon
+  points="59,63.5,60,63.4,61,63.5,60,65"
+  fill="#000"
+  stroke="#000"
+  stroke-width="5"
+  stroke-linejoin="round"
+/></code></pre>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="1286" height="642" src="https://taegon.kim/wp-content/uploads/2018/05/image-6.png" alt="" class="wp-image-9674" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-6.png 1286w, https://taegon.kim/wp-content/uploads/2018/05/image-6-300x150.png 300w, https://taegon.kim/wp-content/uploads/2018/05/image-6-768x383.png 768w, https://taegon.kim/wp-content/uploads/2018/05/image-6-1024x511.png 1024w" sizes="(max-width: 1286px) 100vw, 1286px" /></figure>
+
+
+
+<p>여러 라이언의 이미지를 보면 대체로 귀가 머리 뒤쪽으로 숨겨져있는 걸 알 수 있다. 비슷한 형태의 캐릭터인 라인의 브라운은 얼굴 바탕의 외곽선이 귀까지 이어지고 있어 정면에서 봤을 때 귀 아래쪽이 완전히 보이는 구조라면, 라이언은 얼굴이 귀 아래쪽을 가리는 형태이다.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="792" height="364" src="https://taegon.kim/wp-content/uploads/2018/05/image-8.png" alt="" class="wp-image-9675" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-8.png 792w, https://taegon.kim/wp-content/uploads/2018/05/image-8-300x138.png 300w, https://taegon.kim/wp-content/uploads/2018/05/image-8-768x353.png 768w" sizes="(max-width: 792px) 100vw, 792px" /><figcaption>브라운과 라인의 귀 위치 비교</figcaption></figure>
+
+
+
+<p>그래서 <code>&lt;path&gt;</code>를 사용해 골무 형태를 그리고 살짝 기울여서 얼굴 바탕 뒤에 두도록 그렸다. 몸도 비슷한 방식으로 그렸는데 완만한 라인을 위해 다소 크게 그렸다. 귀의 형태를 볼 수 있도록 얼굴의 바탕색을 투명으로 만들고 화면에 나타나지 않은 부분까지 표현해보면 다음과 같이 보일 것이다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="420" height="488" src="https://taegon.kim/wp-content/uploads/2018/05/image-4.png" alt="" class="wp-image-9678" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-4.png 420w, https://taegon.kim/wp-content/uploads/2018/05/image-4-258x300.png 258w" sizes="(max-width: 420px) 100vw, 420px" /><figcaption>실제 형태는 이렇게 생겼다.</figcaption></figure></div>
+
+
+
+<p>다시금 깨닫는 크롭의 중요성! 사진과 마찬가지로 이미지도 크롭이 중요하다. 위 이미지에 얼굴 배경색을 입히고 적절하게 크롭하면 다음과 같이 라이언 이미지가 만들어진다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="360" height="326" src="https://taegon.kim/wp-content/uploads/2018/05/image-5.png" alt="" class="wp-image-9679" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-5.png 360w, https://taegon.kim/wp-content/uploads/2018/05/image-5-300x272.png 300w" sizes="(max-width: 360px) 100vw, 360px" /></figure></div>
+
+
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+             style="display:block"
+			 data-ad-client="ca-pub-2174135467373345"
+			 data-ad-format="auto"
+			 data-ad-slot="5912369222"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+<h2>CSS로 애니메이션 만들기</h2>
+
+
+
+<p>이제 그림은 다 됐으니 살아 움직이게 만들 때다. 움직임을 구현하기 위해 주로 사용한 기능은 <code>rotate3d</code>&nbsp;변환(transform)이다. 비록 이미지 자체는 2D이지만 자연스러운 움직임을 위해서는 3D 좌표에 맞추어 눈, 코, 귀를 움직여야 했고 각도에 따라 적절하게 이미지의 변형도 일어나야했기 때문이다.</p>
+
+
+
+<p>먼저 얼굴은 반지름이 <code>40</code>인 완전한 구형태이며 여러 부위는 그 구의 "표면"에 붙어있다고 가정했다. 따라서 고개를 숙이거나 들 때 얼굴은 구의 중심, 다시 말해 <code>(60,60,-40)</code>을 기준으로 움직인다. 회전의 중심은 <code>transform-origin</code>&nbsp;속성을 사용해 설정해주었다.</p>
+
+
+
+<pre class="wp-block-code lang-css"><code>.eyes {
+    transform-origin: 50% 50% -40px;
+}</code></pre>
+
+
+
+<p>앞에서 부터 <code>x</code>, <code>y</code>, <code>z</code>&nbsp;위치를 의미하는데 <code>z</code>에 관해서만은 너비와 높이에 비례적인&nbsp;<code>%</code>값을 사용할 수 없다. 여기서 설정한 <code>﻿-40px</code>는 SVG 내부 좌표계에 대응하므로 실제 화면에 표현되는 SVG의 크기가 커지거나 작아지더라도 너비와 높이가 <code>120px</code>일 때와 같은 위치를 가리킨다. z축 좌표는 사용자 쪽에 가까워 질수록 커지기 때문에&nbsp;<code>-40px</code>의 의미는 사용자가 보는 화면 표면으로부터 <code>40px</code>만큼 들어간 위치이다.  앞서 말한대로 얼굴을 표현하는 구의 중심이다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="640" height="341" src="https://taegon.kim/wp-content/uploads/2018/05/image-11.png" alt="" class="wp-image-9684" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-11.png 640w, https://taegon.kim/wp-content/uploads/2018/05/image-11-300x160.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></figure></div>
+
+
+
+<p>하지만 실제로 <code>(0,0,-40)</code>을 기준으로 회전하는 건 눈 부분 뿐이고 귀는 <code>(0,0,5)</code>를 기준으로 움직이고 코 부분은 <code>(0,0,-44)</code>을 기준으로 움직이게 했다. 귀는 위에서 보다시피 원래 약간 기울어져있는데다 애니메이션을 만들어보니 눈 보다 조금 덜 움직이도록 만드는 게 오히려 자연스러웠기 때문이다. 이모티콘에서는 평면처럼 표현되어 있지만 코 부분은 조금 앞으로 튀어나와있는 형태라고 보아야 맞다. 측면에서 표현된 라이언 캐릭터를 보면 코 부분이 눈의 중심보다 살짝 더 한쪽으로 이동해 있는데 바로 이런 이유때문이다. 그래서 똑같은 각도를 회전해도 다른 부위보다 더 많이 회전할 수 있도록 회전 반경을&nbsp;<code>4px</code>&nbsp;정도 늘려주었다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="231" height="219" src="https://taegon.kim/wp-content/uploads/2018/05/image-9.png" alt="" class="wp-image-9682"/></figure></div>
+
+
+
+<p>회전에는 <code>rotate3d</code>&nbsp;변환(transform) 속성이 사용되었고 애니메이션은 <code>transition</code>으로 구현했다. <code>rotate3d</code>에는 순서대로 <code>x</code>, <code>y</code>, <code>z</code>의 가중치와 각도를 순서대로 입력한다. 여기서 <code>x</code>, <code>y</code>, <code>z</code>의 의미는 "해당 축을 기준으로 얼마만큼 회전할 것인가"를 의미한다. 양수면 시계 방향으로, 음수면 시계 반대 방향으로 이동한다. 예를 들어 <code>x</code>축을 기준으로 10도 만큼 회전시키려고 할 때는 다음과 같이 입력한다.</p>
+
+
+
+<pre class="wp-block-code lang-css"><code>transform: rotate3d(1, 0, 0, 10deg);</code></pre>
+
+
+
+<p>각도에 해당하는 값에는 각도(<code>deg</code>) 단위나 라디안(<code>rad</code>) 또는 회전(<code>turn</code>)단위를 사용할 수 있다. 완전한 원은 <code>360deg</code>&nbsp;또는 <code>2π rad</code>&nbsp;또는 <code>1turn</code>으로 표현할 수 있다. 원래&nbsp;<code>x</code>, <code>y</code>, <code>z</code>&nbsp;각 값은 0~1까지의 실수로 표현되고 결과는 0벡터이거나 <code>x^2</code>+<code>y^2</code>+<code>z^2</code>=1을 만족하는 단위 벡터여야 하지만 단위 벡터가 아닌 경우 내부적으로 알아서 단위 벡터로 만들어준다. 이 때문에 다음의 두 선언은 사실 결과가 똑같다.</p>
+
+
+
+<pre class="wp-block-code lang-css"><code>transform: rotate3d(0.5, 0.5, 0.5, 15deg);
+transform: rotate3d(1, 1, 1, 15deg);</code></pre>
+
+
+
+<p>라이언 얼굴을 정면에서 보면&nbsp;<code>x</code>축이 가로로 지나고 <code>y</code>축은 세로로 지나며 두 선과 직교하는 <code>z</code>축이 있다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="560" height="451" src="https://taegon.kim/wp-content/uploads/2018/05/image-12.png" alt="" class="wp-image-9685" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-12.png 560w, https://taegon.kim/wp-content/uploads/2018/05/image-12-300x242.png 300w" sizes="(max-width: 560px) 100vw, 560px" /><figcaption>라이언 얼굴을 지나는 세 축</figcaption></figure></div>
+
+
+
+<p><code>﻿rotate3d</code>&nbsp;함수는 각 축을 중심으로 시계 방향으로 얼마나 회전할 것인지 정해주므로 고개를 숙이려면 <code>x</code>축을 기준으로 음수만큼 회전하면 된다. 반면 <code>y</code>축은 좌우로 얼마나 움직일 것인지 정해준다. 화면 왼쪽을 볼 때는 음수만큼 회전하고&nbsp; 문제는 회전의 정도인데 이 부분은 삼각함수를 이용해 계산했다. 간단한 테스트를 통해 입력 상자와 얼굴 중심까지의 y좌표 거리를 <code>distInput</code>이라고 할 때 입력 상자와 얼굴 중심까지의 <code>z</code>거리는 <code>distInput</code>의 세 배 정도라고 가정하는 편이 적당하다는 결론을 얻었다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="520" height="370" src="https://taegon.kim/wp-content/uploads/2018/05/image-3.png" alt="" class="wp-image-9691" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-3.png 520w, https://taegon.kim/wp-content/uploads/2018/05/image-3-300x213.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></figure></div>
+
+
+
+<p>DOM API의 <code>getBoundingClientRect()</code>를 사용하여 두 값을 얻은 후 다음은 얼굴 중심의 x좌표에서 커서가 얼마나 떨어져있는지 구한다. 커서의 위치를 구하는 방법은 다음 섹션에서 설명해두었다. 커서 위치까지 구하고 나면 x, y, z 좌표를 알 수 있는 세 가지 값을 모두 얻은 것이다. 직각 삼각형에서는 두 변의 길이를 알면 어느쪽 각이든 구할 수 있다. x좌표와 z좌표에 아크 탄젠트를 적용하여 좌우 기울기를 얻고 이 값을 사용하면 상하 기울기를 다음과 같이 얻을 수 있다.</p>
+
+
+
+<pre class="wp-block-code lang-js"><code>/* distCaret = 얼굴 중심으로부터 커서의 픽셀 x 위치 */
+
+// 좌우 기울기
+const y = Math.atan2(-distCaret, Math.abs(distInput)*3);
+
+// 상하 기울기
+const x = Math.atan2(distInput, Math.abs(distInput)*3 / Math.cos(y));</code></pre>
+
+
+
+<p>여기까지 만들고 스크립트를 작성하면 커서를 따라 눈길을 옮기는 라이언을 볼 수 있다. 커서는 좌우로만 움직이기 때문에 앞서 이미지에서 보듯 <code>z</code>&nbsp;회전은 이 스크립트에서 그리 중요하지 않다. 그러나 애니메이션을 만들어 봤을 때 고개를 조금 기울이는 편이 더 자연스러워보였기 때문에 방향에 영향을 주지 않는 선에서 <code>z</code>축 회전도 조금 가미해주었다.</p>
+
+
+
+<ul class="wp-block-gallery aligncenter columns-2 is-cropped"><li class="blocks-gallery-item"><figure><img loading="lazy" width="320" height="286" src="https://taegon.kim/wp-content/uploads/2018/05/image-1.gif" alt="" data-id="9692" class="wp-image-9692"/></figure></li><li class="blocks-gallery-item"><figure><img loading="lazy" width="320" height="286" src="https://taegon.kim/wp-content/uploads/2018/05/withz.gif" data-id="9693" data-link="https://taegon.kim/?attachment_id=9693" class="wp-image-9693"/></figure></li></ul>
+
+
+
+<p>위 이미지에서 왼쪽이 <code>z</code>&nbsp;회전을 주지 않은 것이고 오른쪽이 회전을 준 애니메이션이다. 일부러 작은 값을 사용했기 때문에 큰 차이는 없지만 개인적으로는 오른쪽의 이미지가 더 마음에 들어 이를 선택했다.</p>
+
+
+
+<p>고개를 숙일 때 원래대로라면 귀가 얼굴 바탕 앞으로 이동했어야 한다. 하지만 CSS, JS, SVG로는 이를 구현하기가 어려워 고개를 숙여도 귀는 항상 머리 뒤쪽에 위치하게 되었다. 충분히 괜찮게 보인다고 생각하면서도 조금 마음에 걸렸는데, 그러다 우연히 라이언이 의외로 이마가 넓은 캐릭터라는 걸 다른 이모티콘에서 확인하게 됐다. 브라보! 덕분에 마음의 평화를 얻어 귀는 계속 머리 뒤쪽에 두기로 했다.</p>
+
+
+
+<figure class="wp-block-image"><img loading="lazy" width="664" height="184" src="https://taegon.kim/wp-content/uploads/2018/05/image-2.png" alt="" class="wp-image-9694" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-2.png 664w, https://taegon.kim/wp-content/uploads/2018/05/image-2-300x83.png 300w" sizes="(max-width: 664px) 100vw, 664px" /><figcaption>출처: 카카오 이모티콘 샵</figcaption></figure>
+
+
+
+<p>이제 패스워드 입력시의 애니메이션을 만들어 볼 차례이다. 원래 봤던 프로젝트에서는 패스워드를 입력할 때 곰이 눈을 가리고 있었다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="400" height="582" src="https://taegon.kim/wp-content/uploads/2018/05/image-7.png" alt="" class="wp-image-9669" srcset="https://taegon.kim/wp-content/uploads/2018/05/image-7.png 400w, https://taegon.kim/wp-content/uploads/2018/05/image-7-206x300.png 206w" sizes="(max-width: 400px) 100vw, 400px" /></figure></div>
+
+
+
+<p>귀여운 동작이긴 했지만 실제로 작성을 해보니 문제가 있었다. 라이언은 원래 팔이 짧은 캐릭터라 저 동작이 너무 안 어울렸기 때문이다. 머리는 크고 팔이 짧아서 위와 같은 형태의 애니메이션은 굉장히 어색한 모습이 되었다.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img loading="lazy" width="240" height="240" src="https://taegon.kim/wp-content/uploads/2018/05/image.gif" alt="" class="wp-image-9670"/><figcaption>이미지 출처: 카카오 이모티콘샵</figcaption></figure></div>
+
+
+
+<p>고민 끝에 결국 패스워드를 입력할 때는 고개를 반대쪽으로 돌리고 외면하도록 만들어보았다. 다음 섹션에서 설명하겠지만 사용자 입력에 반응하도록 만들려면 패스워드를 다른 엘리먼트로 복사해야 하는 보안 상의 이유도 있어서 패스워드를 입력할 때는 사용자의 입력을 모니터링 하지 않는다. 다만, 그냥 고개를 들고 있으면 심심할 수 있으므로 <code>@keyframes</code>를 사용해 고개를 좌우로 천천히 계속 움직이도록 만들었다.</p>
+
+
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+             style="display:block"
+			 data-ad-client="ca-pub-2174135467373345"
+			 data-ad-format="auto"
+			 data-ad-slot="5912369222"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+<h2>커서 위치 구하기</h2>
+
+
+
+<p>현재 브라우저에서는&nbsp;<code>&lt;input&gt;</code>&nbsp;엘리먼트 내에 있는 캐럿(caret)의 픽셀 위치를 구할 때 사용할 수 있는 API가 없다. 웹 페이지에서 선택한 텍스트의 픽셀 위치는 보통 다음과 같이 구할 수 있다.</p>
+
+
+
+<pre class="wp-block-code lang-js"><code>const sel = window.getSelection();
+const range = sel.getRangeAt(0);
+const rect = range.getBoundingClientRect();
+
+console.log(rect);</code></pre>
+
+
+
+<p>그러나 위 코드는 <code>&lt;input&gt;</code>&nbsp;엘리먼트에서 글을 입력할 때는 동작하지 않는다.&nbsp; 심지어 원래라면 선택된 엘리먼트와 위치를 알려주었어야 할&nbsp;<code>range</code>&nbsp;객체에서도&nbsp;<code>&lt;input&gt;</code>&nbsp;엘리먼트를 찾아볼 수 없다. 한 가지 희망적인 부분이 있다면 <code>&lt;input&gt;</code>&nbsp;엘리먼트에는 <code>selectionStart</code>와 <code>selectionEnd</code>라는 속성이 있어서 이를 통해 커서가 몇 번째 글자에 위치하는 지 알 수 있다.</p>
+
+
+
+<iframe style="width: 100%; height: 160px" src="https://jsfiddle.net/v5p4mdvu/2/embedded/result,js,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+
+<p>몇 번째 글자라는 것만 알 수 있으므로 픽셀 위치를 구하기 위해 현재 글자를 입력 중인 <code>&lt;input&gt;</code>&nbsp;엘리먼트와 스타일이 완전히 똑같은 가짜 입력 엘리먼트를 하나 만들고 입력되는 글자를 그대로 복사해서 넣었다. 글꼴, 글자 크기, 패딩, 마진 등의 스타일은 픽셀 위치를 정하는 데 있어 중요하므로&nbsp;<code>getComputedStyle</code>을 사용해서 입력 엘리먼트의 스타일을 그대로&nbsp;복사했다. 다음에 나오는 <code>copyStyles</code>는 전달받은 엘리먼트의 스타일을 <code>fauxInput</code>이라는 <code>&lt;div&gt;</code>&nbsp;엘리먼트에 복사하는 함수이다.</p>
+
+
+
+<pre class="wp-block-code lang-js"><code>function copyStyles(el) {
+    const props = window.getComputedStyle(el, null);
+
+    if ( fauxInput.parentNode === document.body ) {
+        document.body.removeChild(fauxInput);
+    }
+
+    fauxInput.style.visibility = 'hidden';
+    fauxInput.style.position = 'absolute';
+    fauxInput.style.top = Math.min(el.offsetHeight * -2, -999) + 'px';
+
+    for(let i=0; i &lt; props.length; i++) {
+        if (['visibility','display','opacity','position','top','left','right','bottom'].indexOf(props[i]) !== -1) {
+            continue;
+        }
+        fauxInput.style[props[i]] = props.getPropertyValue(props[i]);
+    }
+
+    document.body.appendChild(fauxInput);
+}</code></pre>
+
+
+
+<p><code>fauxInput</code>에는 <code>&lt;span&gt;</code>&nbsp;엘리먼트가 있어서 여기에 입력되는 텍스트를 복사한 후, <code>&lt;span&gt;</code>&nbsp;엘리먼트의 픽셀 너비를 구하면 <code>&lt;input&gt;</code> 엘리먼트에 상대적인 커서 위치를 구할 수 있다.</p>
+
+
+
+<h2>완성된 코드</h2>
+
+
+
+<p>위에서 설명한 모든 결과물을 하나로 합친 코드는 다음과 같다. Result 탭을 클릭하면 실제로 사용해 볼 수도 있다. 완성된 코드는 <a href="https://github.com/taggon/ryan-login">GitHub 저장소</a>에서도 볼 수 있다.</p>
+
+
+<iframe style="width: 100%; height: 660px" src="https://jsfiddle.net/77e7qupy/embedded/result,js,css,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+             style="display:block"
+			 data-ad-client="ca-pub-2174135467373345"
+			 data-ad-format="auto"
+			 data-ad-slot="5912369222"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">SNS를 통해 이 글을 공유하세요.</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-9658" class="share-facebook sd-button share-icon" href="https://taegon.kim/archives/9658?share=facebook" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-linkedin"><a rel="nofollow noopener noreferrer" data-shared="sharing-linkedin-9658" class="share-linkedin sd-button share-icon" href="https://taegon.kim/archives/9658?share=linkedin" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-9658" class="share-twitter sd-button share-icon" href="https://taegon.kim/archives/9658?share=twitter" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-telegram"><a rel="nofollow noopener noreferrer" data-shared="" class="share-telegram sd-button share-icon" href="https://taegon.kim/archives/9658?share=telegram" target="_blank" title="Click to share on Telegram"><span>Telegram</span></a></li><li class="share-email"><a rel="nofollow noopener noreferrer" data-shared="" class="share-email sd-button share-icon" href="https://taegon.kim/archives/9658?share=email" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-end"></li></ul></div></div></div>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	
+</div>		</div>
+		<div class="page-links"></div>
+	</div><!-- .entry-content -->
+	</article><!-- #post-9658 -->
+<div class="guide"><i class="icon icon-chevron-down"></i></div>
+
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://taegon.kim/archives/9646" rel="prev">SmartThings와 생각하는 냉장고</a></div><div class="nav-next"><a href="https://taegon.kim/archives/9716" rel="next">산업별 자바스크립트 사용 현황</a></div></div>
+	</nav><section id="comments" class="comments">
+	<div class="comments__inner">
+					<!-- <h2 class="comments-title"></h2> -->
+
+						<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+				<h3 class="screen-reader-text">Comment navigation</h3>
+				<div class="nav-links">
+					<div class="nav-previous"><a href="https://taegon.kim/archives/9658/comment-page-1#comments" >Older Comments</a></div>
+					<div class="nav-next"><a href="https://taegon.kim/archives/9658/comment-page-3#comments" >Newer Comments</a></div>
+				</div>
+			</nav>
+			
+			<ol class="comments-list">
+						<li id="comment-3528" class="comment even thread-even depth-1">
+			<article id="div-comment-3528" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">윤병인</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3528">
+							<time datetime="2018-08-15T12:16:35+09:00">
+								August 15, 2018 at 12:16 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>진짜 귀엽네요 ㅋㅋㅋㅋ 저도 고대로 따라 만들어보고 싶네요</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3528#respond' data-commentid="3528" data-postid="9658" data-belowelement="div-comment-3528" data-respondelement="respond" data-replyto="Reply to 윤병인" aria-label='Reply to 윤병인'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3535" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-3535" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">주홍철</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3535">
+							<time datetime="2018-09-15T07:02:37+09:00">
+								September 15, 2018 at 7:02 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>와 정말이쁘네요 ㅎ</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3535#respond' data-commentid="3535" data-postid="9658" data-belowelement="div-comment-3535" data-respondelement="respond" data-replyto="Reply to 주홍철" aria-label='Reply to 주홍철'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3538" class="comment even thread-even depth-1">
+			<article id="div-comment-3538" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">엄홍인</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3538">
+							<time datetime="2018-09-19T02:48:21+09:00">
+								September 19, 2018 at 2:48 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>정말 이뻐요!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3538#respond' data-commentid="3538" data-postid="9658" data-belowelement="div-comment-3538" data-respondelement="respond" data-replyto="Reply to 엄홍인" aria-label='Reply to 엄홍인'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3542" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-3542" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">hkmo</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3542">
+							<time datetime="2018-09-20T17:16:18+09:00">
+								September 20, 2018 at 5:16 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>완전 멋져요!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3542#respond' data-commentid="3542" data-postid="9658" data-belowelement="div-comment-3542" data-respondelement="respond" data-replyto="Reply to hkmo" aria-label='Reply to hkmo'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3550" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-3550" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">drm</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3550">
+							<time datetime="2018-10-25T14:57:55+09:00">
+								October 25, 2018 at 2:57 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>혹시 사용할 곳이 있어서 그러는데 약간 확장해서 써도 될까요?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3550#respond' data-commentid="3550" data-postid="9658" data-belowelement="div-comment-3550" data-respondelement="respond" data-replyto="Reply to drm" aria-label='Reply to drm'>Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-3558" class="comment byuser comment-author-taggon bypostauthor odd alt depth-2">
+			<article id="div-comment-3558" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">taggon</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3558">
+							<time datetime="2018-10-26T11:24:04+09:00">
+								October 26, 2018 at 11:24 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>링크된 GitHub 저장소에 보시면 라이선스를 MIT로 명시하고 있습니다. 정해진 조건에 따라 자유롭게 사용하셔도 된다는 의미입니다. 자세한 내용은 한국저작권위원회에서 제공하는 <a href="https://www.olis.or.kr/license/Detailselect.do?lId=1006" rel="nofollow">MIT 라이선스</a> 페이지를 참고하시면 됩니다. 하지만 MIT 라이선스가 적용되는 건 소스 코드뿐으로 캐릭터의 저작권은 (주)카카오에 있으므로 해당 코드를 그대로 사용하는 건 주의할 필요가 있습니다.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3558#respond' data-commentid="3558" data-postid="9658" data-belowelement="div-comment-3558" data-respondelement="respond" data-replyto="Reply to taggon" aria-label='Reply to taggon'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-3551" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-3551" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">niceto</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3551">
+							<time datetime="2018-10-25T14:59:29+09:00">
+								October 25, 2018 at 2:59 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>혹시 사용해도 되나요~</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3551#respond' data-commentid="3551" data-postid="9658" data-belowelement="div-comment-3551" data-respondelement="respond" data-replyto="Reply to niceto" aria-label='Reply to niceto'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3580" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-3580" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">khj21133997</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3580">
+							<time datetime="2018-12-09T18:45:32+09:00">
+								December 9, 2018 at 6:45 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>너무 귀여워요.....!!!!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3580#respond' data-commentid="3580" data-postid="9658" data-belowelement="div-comment-3580" data-respondelement="respond" data-replyto="Reply to khj21133997" aria-label='Reply to khj21133997'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3588" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-3588" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">zinee</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3588">
+							<time datetime="2018-12-28T22:20:17+09:00">
+								December 28, 2018 at 10:20 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>비번 칠때 하늘보는거 넘 귀여워요 ㅋㅋㅋ 설명도 자세해서 유익하네요~ 좋은 글 잘 보고 갑니다!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3588#respond' data-commentid="3588" data-postid="9658" data-belowelement="div-comment-3588" data-respondelement="respond" data-replyto="Reply to zinee" aria-label='Reply to zinee'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3598" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-3598" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn">날범</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3598">
+							<time datetime="2019-02-12T22:18:20+09:00">
+								February 12, 2019 at 10:18 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>정말 잘 봤습니다ㅜㅜ</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3598#respond' data-commentid="3598" data-postid="9658" data-belowelement="div-comment-3598" data-respondelement="respond" data-replyto="Reply to 날범" aria-label='Reply to 날범'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-3603" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-3603" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+												<b class="fn"><a href='https://plus.google.com/113283197053982860033' rel='external nofollow ugc' class='url'>Jin-ah Choi</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://taegon.kim/archives/9658/comment-page-2#comment-3603">
+							<time datetime="2019-02-20T11:42:01+09:00">
+								February 20, 2019 at 11:42 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>대박 멋지세요!!!!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://taegon.kim/archives/9658?replytocom=3603#respond' data-commentid="3603" data-postid="9658" data-belowelement="div-comment-3603" data-respondelement="respond" data-replyto="Reply to Jin-ah Choi" aria-label='Reply to Jin-ah Choi'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+			</ol><!-- .comments-list -->
+						
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">댓글을 남겨주세요					<small><a rel="nofollow" id="cancel-comment-reply-link" href="/archives/9658/comment-page-2#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="https://jetpack.wordpress.com/jetpack-comment/?blogid=114760573&#038;postid=9658&#038;comment_registration=0&#038;require_name_email=1&#038;stc_enabled=0&#038;stb_enabled=0&#038;show_avatars=0&#038;avatar_default=mystery&#038;greeting=%EB%8C%93%EA%B8%80%EC%9D%84+%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94&#038;greeting_reply=Leave+a+Reply+to+%25s&#038;color_scheme=light&#038;lang=en_US&#038;jetpack_version=8.9&#038;show_cookie_consent=10&#038;has_cookie_consent=0&#038;token_key=%3Bnormal%3B&#038;sig=fb0ebaa95cce3752ed898171489966404bc2eaa4#parent=https%3A%2F%2Ftaegon.kim%2Farchives%2F9658%2Fcomment-page-2" style="width:100%; height: 430px; border:0;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups"></iframe>
+									<!--[if !IE]><!-->
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					<!--<![endif]-->
+							</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="" />
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>	</div>
+</section>
+		</main>
+	</div>
+
+	</div><!-- .site-content -->
+	<footer class="site-footer">
+		<div class="copyright">
+			<span class="copyright-item"><i class="icon icon-bubble"></i> Copyright 2020 by Taegon Kim</span> <span class="punc">/</span>
+			<span class="copyright-item">Proudly powered by <a href="https://wordpress.org">WordPress</a></span><span class="punc">.</span>
+		</div>
+	</footer>
+</div><!-- .site -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script>Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/';</script>
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/taegon.kim\/archives\/9658":9658};
+	</script>
+					<div id="sharing_email" style="display: none;">
+		<form action="/archives/9658/comment-page-2" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+						<input type="text" id="jetpack-source_f_name" name="source_f_name" class="input" value="" size="25" autocomplete="off" title="This field is for validation and should not be changed" />
+			
+			<img style="float: right; display: none" class="loading" src="https://taegon.kim/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a rel="nofollow" href="#cancel" class="sharing_cancel" role="button">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+<script type='text/javascript' src='https://taegon.kim/wp-content/themes/themeone/themeone.js?ver=20180513' id='themeone-script-js'></script>
+<script type='text/javascript' src='https://taegon.kim/wp-includes/js/comment-reply.min.js?ver=5.5.1' id='comment-reply-js'></script>
+<script type='text/javascript' src='https://taegon.kim/wp-includes/js/wp-embed.min.js?ver=5.5.1' id='wp-embed-js'></script>
+<script async="async" type='text/javascript' src='https://taegon.kim/wp-content/plugins/akismet/_inc/form.js?ver=4.1.6' id='akismet-form-js'></script>
+<script type='text/javascript' id='sharing-js-js-extra'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://taegon.kim/wp-content/plugins/jetpack/_inc/build/sharedaddy/sharing.min.js?ver=8.9' id='sharing-js-js'></script>
+<script type='text/javascript' id='sharing-js-js-after'>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-telegram', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtelegram', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+</script>
+
+		<!--[if IE]>
+		<script type="text/javascript">
+			if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=114760573&postid=9658&comment_registration=0&require_name_email=1&stc_enabled=0&stb_enabled=0&show_avatars=0&avatar_default=mystery&greeting=%EB%8C%93%EA%B8%80%EC%9D%84+%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.9&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=fb0ebaa95cce3752ed898171489966404bc2eaa4#parent=https%3A%2F%2Ftaegon.kim%2Farchives%2F9658%2Fcomment-page-2" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=114760573&postid=9658&comment_registration=0&require_name_email=1&stc_enabled=0&stb_enabled=0&show_avatars=0&avatar_default=mystery&greeting=%EB%8C%93%EA%B8%80%EC%9D%84+%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.9&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=fb0ebaa95cce3752ed898171489966404bc2eaa4#parent=https%3A%2F%2Ftaegon.kim%2Farchives%2F9658%2Fcomment-page-2";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type='text/javascript' src='https://stats.wp.com/e-202037.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.9',blog:'114760573',post:'9658',tz:'9',srv:'taegon.kim'} ]);
+	_stq.push([ 'clickTrackerInit', '114760573', '9658' ]);
+</script>
+</body>
+</html>
+
+<!-- Cache served by PoweredCache -->
+<!-- If you like fast websites like this, visit: https://poweredcache.com -->
+<!-- Last modified: Sun, 13 Sep 2020 10:50:34 GMT -->
+<!-- Dynamic page generated in 0.143 -->

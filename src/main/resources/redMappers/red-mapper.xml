@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="redMapper">
+
+	<resultMap id="resultProject" type="com.beet.HWABO.red.model.vo.UserProject">
+		<id property="project_num" column="project_num" />
+		<result property="ucode" column="ucode" />
+		<result property="star" column="star" />
+		<result property="name" column="name" />
+		<result property="explain" column="explain" />
+		<result property="startday" column="startday" />
+		<result property="endday" column="endday" />		
+		<result property="uploaddate" column="uploaddate" />
+		<result property="open" column="open" />
+		<result property="goal" column="goal" />
+		<result property="done" column="done" />
+		<result property="right" column="right" />
+		<result property="order_by" column="order_by" />
+	</resultMap>
+	<resultMap id="resultList" type="com.beet.HWABO.red.model.vo.UserProject">
+		<result property="ucode" column="ucode" />
+		<result property="star" column="star" />
+		<result property="project_num" column="project_num" />
+		<result property="name" column="name" />
+		<result property="explain" column="explain" />
+		<result property="startday" column="startday" />
+		<result property="endday" column="endday" />		
+		<result property="uploaddate" column="uploaddate" />
+		<result property="open" column="open" />
+		<result property="goal" column="goal" />
+		<result property="done" column="done" />
+		<result property="right" column="right" />
+		<result property="order_by" column="order_by" />
+	</resultMap>
+	<resultMap id="resultMemberList" type="com.beet.HWABO.red.model.vo.MemberProject">
+		<result property="uemail" column="uemail" />
+		<result property="upwd" column="upwd" />
+		<result property="uname" column="uname" />
+		<result property="uphone" column="uphone" />
+		<result property="ugroup" column="ugroup" />
+		<result property="urole" column="urole" />
+		<result property="ust" column="ust" />
+		<result property="ucert" column="ucert" />
+		<result property="udate" column="udate" />
+		<result property="signtype" column="signtype" />
+		<result property="accesstoken" column="accesstoken" />
+		<result property="uimg" column="uimg" />
+		<result property="uactive" column="uactive" />
+		<result property="ucode" column="ucode" />
+		<result property="star" column="star" />
+		<result property="project_num" column="project_num" />
+		<result property="name" column="name" />
+		<result property="explain" column="explain" />
+		<result property="startday" column="startday" />
+		<result property="endday" column="endday" />		
+		<result property="uploaddate" column="uploaddate" />
+		<result property="open" column="open" />
+		<result property="goal" column="goal" />
+		<result property="done" column="done" />
+		<result property="right" column="right" />
+		<result property="order_by" column="order_by" />
+		<result property="pjadmin" column="pjadmin" />
+	</resultMap>
+	<resultMap id="resultMember" type="com.beet.HWABO.red.model.vo.MemberProject">
+		<id property="project_num" column="project_num" />
+		<result property="uemail" column="uemail" />
+		<result property="upwd" column="upwd" />
+		<result property="uname" column="uname" />
+		<result property="uphone" column="uphone" />
+		<result property="ugroup" column="ugroup" />
+		<result property="urole" column="urole" />
+		<result property="ust" column="ust" />
+		<result property="ucert" column="ucert" />
+		<result property="udate" column="udate" />
+		<result property="signtype" column="signtype" />
+		<result property="accesstoken" column="accesstoken" />
+		<result property="uimg" column="uimg" />
+		<result property="uactive" column="uactive" />
+		<result property="ucode" column="ucode" />
+		<result property="star" column="star" />
+		<result property="name" column="name" />
+		<result property="explain" column="explain" />
+		<result property="startday" column="startday" />
+		<result property="endday" column="endday" />		
+		<result property="uploaddate" column="uploaddate" />
+		<result property="open" column="open" />
+		<result property="goal" column="goal" />
+		<result property="done" column="done" />
+		<result property="right" column="right" />
+		<result property="order_by" column="order_by" />
+		<result property="pjadmin" column="pjadmin" />
+	</resultMap>
+	<resultMap id="resultProgressList" type="com.beet.HWABO.red.model.vo.Progress">
+		<result property="ucode" column="ucode" />
+		<result property="project_num" column="project_num" />
+		<result property="name" column="name" />
+		<result property="goal" column="goal" />
+		<result property="done" column="done" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+	</resultMap>
+	<resultMap id="resultProgress" type="com.beet.HWABO.red.model.vo.Progress">
+		<id property="ucode" column="ucode" />
+		<result property="project_num" column="project_num" />
+		<result property="name" column="name" />
+		<result property="goal" column="goal" />
+		<result property="done" column="done" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+	</resultMap>
+	<resultMap id="resultBpost" type="Bpost">
+		<id property="bno" column="bno" />
+		<result property="btitle" column="btitle" />
+		<result property="bucode" column="bucode" />
+		<result property="bwriter" column="bwriter" />
+		<result property="bstartday" column="bstartday" />
+		<result property="bendday" column="bendday" />
+		<result property="bkind" column="bkind" />
+		<result property="bcharge" column="bcharge" />
+		<result property="bcontent" column="bcontent" />
+		<result property="benrolldate" column="benrolldate" />
+		<result property="bopen" column="bopen" />
+		<result property="brenamefile" column="brenamefile" />
+		<result property="boriginfile" column="boriginfile" />
+		<result property="bpnum" column="bpnum" />
+		<result property="bchargename" column="bchargename" />
+	</resultMap>
+	<resultMap id="resultBpostList" type="Bpost">
+		<result property="bno" column="bno" />
+		<result property="btitle" column="btitle" />
+		<result property="bucode" column="bucode" />
+		<result property="bwriter" column="bwriter" />
+		<result property="bstartday" column="bstartday" />
+		<result property="bendday" column="bendday" />
+		<result property="bkind" column="bkind" />
+		<result property="bcharge" column="bcharge" />
+		<result property="bcontent" column="bcontent" />
+		<result property="benrolldate" column="benrolldate" />
+		<result property="bopen" column="bopen" />
+		<result property="brenamefile" column="brenamefile" />
+		<result property="boriginfile" column="boriginfile" />
+		<result property="bpnum" column="bpnum" />
+		<result property="bchargename" column="bchargename" />
+	</resultMap>
+	<resultMap type="Cpost" id="rsltCpost">
+		<id column="cno" property="cno" />
+		<result column="ctitle" property="ctitle" />
+		<result column="cucode" property="cucode" />
+		<result column="cwriter" property="cwriter" />
+		<result column="ccontent" property="ccontent" />
+		<result column="cenrolldate" property="cenrolldate" />
+		<result column="copen" property="copen" />
+		<result column="cpnum" property="cpnum" />
+	</resultMap>
+	<resultMap id="resultChatList" type="com.beet.HWABO.red.model.vo.Chatting">
+		<result property="ucode" column="ucode" />
+		<result property="project_num" column="project_num" />
+		<result property="project_name" column="project_name" />
+		<result property="uname" column="uname" />
+		<result property="content" column="content" />
+		<result property="chat_time" column="chat_time" />
+		<result property="orignal_file" column="orignal_file" />
+		<result property="rename_file" column="rename_file" />
+	</resultMap>
+	<resultMap id="resultChat" type="com.beet.HWABO.red.model.vo.Chatting">
+		<id property="content" column="content" />
+		<result property="ucode" column="ucode" />
+		<result property="project_num" column="project_num" />
+		<result property="project_name" column="project_name" />
+		<result property="uname" column="uname" />
+		<result property="chat_time" column="chat_time" />
+		<result property="orignal_file" column="orignal_file" />
+		<result property="rename_file" column="rename_file" />
+	</resultMap>
+
+<select id="selectProgressList" parameterType="string" resultMap="resultProgressList">
+		select * from progress where project_num = #{ project_num }  ORDER BY title
+</select>
+
+<select id="selectProgress" parameterType="com.beet.HWABO.red.model.vo.MemberProject" resultMap="resultProgress">
+		select * from progress where project_num = #{ project_num } and ucode = #{ ucode } ORDER BY title
+</select>
+
+<select id="selectBpostList" parameterType="string" resultMap="resultBpostList">
+		select * from bpost where bpnum = #{ bpnum }  ORDER BY btitle
+</select>
+
+<select id="selectBpost" parameterType="com.beet.HWABO.red.model.vo.MemberProject" resultMap="resultBpost">
+		select * from bpost where bpnum = #{ bpnum } and ucode = #{ ucode }  ORDER BY btitle
+</select>
+
+<select id="selectMemberList" parameterType="string" resultMap="resultMemberList">
+		select * from project join pjmember on (project.project_num = pjmember.pnum) join
+		(select UCODE,UEMAIL,UPWD,UNAME,UPHONE,UGROUP,UROLE,UST,UCERT,UDATE,SIGNTYPE,ACCESSTOKEN,UIMG,UACTIVE from member)
+		using (ucode) where project.PROJECT_NUM = #{ projectNumber }  ORDER BY TO_NUMBER(order_by)
+</select>
+
+<select id="selectMember" parameterType="com.beet.HWABO.red.model.vo.MemberProject" resultMap="resultMember">
+		select * from project join pjmember on (project.project_num = pjmember.pnum) join 
+		(select UCODE,UEMAIL,UPWD,UNAME,UPHONE,UGROUP,UROLE,UST,UCERT,UDATE,SIGNTYPE,ACCESSTOKEN,UIMG,UACTIVE from member)
+		using (ucode) where project.PROJECT_NUM = #{ projectNumber } and pjmember.ucode = #{ ucode }  ORDER BY TO_NUMBER(order_by)
+</select>
+
+<select id="selectList" parameterType="string" resultMap="resultList">
+		select * from project join pjmember on (project.project_num = pjmember.pnum) where ucode = #{ ucode }  ORDER BY TO_NUMBER(order_by)
+</select>
+
+<select id="selectStar" parameterType="string" resultMap="resultProject">
+		select * from star join project on (star.star = project.project_num) where ucode = #{ ucode }
+</select>
+
+<select id="selectCheckStar" parameterType="com.beet.HWABO.red.model.vo.Star" resultMap="resultList">
+		select * from star join project on (star.star = project.project_num) where ucode = #{ ucode } and star = #{ star }
+</select>
+
+<select id="selectProject" parameterType="string" resultMap="resultProject">
+		select * from project where PROJECT_NUM = #{ projectNumber }
+</select>
+
+
+<select id="selectChat" parameterType="string" resultMap="resultChatList">
+		select * from chatting where PROJECT_NUM = #{ projectNumber } order by chat_time
+</select>
+
+<select id="selectAllPost" parameterType="string" resultType="com.beet.HWABO.red.model.vo.PostPlus">
+		select FIRSTWORD, NO, ENROLLDATE, PNUM, UCODE, SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, CNO, CPNUM, CTITLE, CUCODE, CWRITER, CCONTENT, CENROLLDATE, COPEN, HASHTAGS, MENTIONS, OFILE1, RFILE1, OFILE2, RFILE2, OFILE3, RFILE3, BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME,
+	concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+	 from realpost 
+		where pnum = #{pnum}
+		order by enrolldate desc
+</select>
+<select id="selectPost" parameterType="com.beet.HWABO.red.model.vo.PostPlus" resultType="com.beet.HWABO.red.model.vo.PostPlus">
+		select FIRSTWORD, NO, ENROLLDATE, PNUM, UCODE, SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, CNO, CPNUM, CTITLE, CUCODE, CWRITER, CCONTENT, CENROLLDATE, COPEN, HASHTAGS, MENTIONS, OFILE1, RFILE1, OFILE2, RFILE2, OFILE3, RFILE3, BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME,
+	concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+	 from realpost 
+		where pnum = #{pnum} and
+		(
+		stitle like #{ bcontent } or scontent like #{ bcontent } or
+		ctitle like #{ bcontent } or ccontent like #{ bcontent } or
+		btitle like #{ bcontent } or bcontent like #{ bcontent }
+		)
+		order by enrolldate desc
+</select>
+
+<select id="selectCpost" parameterType="string" resultMap="rsltCpost">
+		select * from cpost
+		left join addon using (cno)
+		where cpnum = #{ project_num }
+		order by cenrolldate desc
+</select>
+
+<select id="selectChatSpeed" parameterType="com.beet.HWABO.red.model.vo.ChatSpeed" resultType="com.beet.HWABO.red.model.vo.ChatSpeed">
+		select * from chat_speed where fk = #{ fk }
+</select>
+
+<select id="selectCalendar" parameterType="PjMember" resultType="com.beet.HWABO.red.model.vo.Calendar">
+		select * from Calendar where ucode = #{ ucode } and pnum = #{ pnum }
+</select>
+
+<select id="selectAllSpost" parameterType="PjMember" resultType="Spost">
+		select * from spost where sucode = #{ ucode } and spnum = #{ pnum }
+</select>
+
+<insert id="insertProject" parameterType="com.beet.HWABO.red.model.vo.UserProject">
+		insert into project VALUES (#{project_num},#{name},#{explain},default,default,default,null,100000,1,#{right},(select max(TO_NUMBER(order_by))+1 from project))
+</insert>
+
+<insert id="insertProject2" parameterType="com.beet.HWABO.red.model.vo.UserProject">
+		insert into pjmember VALUES (#{project_num},#{ucode},'1')
+</insert>
+
+<insert id="insertProjectStar" parameterType="com.beet.HWABO.red.model.vo.Star">
+		insert into star values (#{ ucode },#{ star })
+</insert>
+
+<insert id="insertProgress" parameterType="com.beet.HWABO.red.model.vo.Progress">
+		insert into Progress values (#{ ucode },#{ project_num },#{ name },#{ goal },#{ done },#{ title },#{ content })
+</insert>
+
+<insert id="insertChat" parameterType="com.beet.HWABO.red.model.vo.Chatting">
+		insert into chatting( UCODE,PROJECT_NUM,PROJECT_NAME,UNAME,CONTENT,CHAT_TIME,ORIGNAL_FILE,RENAME_FILE ) 
+		values (#{ ucode },#{ project_num },#{ project_name },#{ uname },#{ content },SYSTIMESTAMP,null,null)
+</insert>
+
+<insert id="insertCalendar" parameterType="com.beet.HWABO.red.model.vo.Calendar">
+		insert into calendar(calno,pnum,ucode,uname,enrolldate,title,start_date,end_date,allday ) 
+		values ( (select concat('cal', (select nvl(max(to_number(substr(calno,4))),0) + 1 from calendar))from dual) ,#{ pnum },#{ ucode },#{ uname },default,#{ title },#{ start_date },#{ end_date },null)
+</insert>
+
+<insert id="insertCalendar2" parameterType="com.beet.HWABO.red.model.vo.Calendar">
+		insert into calendar(calno,pnum,ucode,uname,enrolldate,title,start_date,end_date,allday ) 
+		values ( (select concat('cal', (select nvl(max(to_number(substr(calno,4))),0) + 1 from calendar))from dual) ,#{ pnum },#{ ucode },#{ uname },default,#{ title },#{ start_date },#{ end_date },null)
+</insert>
+
+<insert id="insertCalendarSpostAll" parameterType="Spost">
+		insert into calendar(calno,pnum,ucode,uname,enrolldate,title,start_date,end_date,allday ) 
+		values ( #{ sno },#{ spnum },#{ sucode },#{ swriter },#{ senrolldate },#{ stitle },to_char(#{ sstartday },'yyyy-MM-dd'),to_char(#{ sendday },'yyyy-MM-dd'),#{ sopen })
+		<!-- (select concat('cal', (select nvl(max(to_number(substr(calno,4))),0) + 1 from calendar))from dual) -->
+</insert>
+
+<insert id="insertSpost" parameterType="com.beet.HWABO.red.model.vo.SpostFixed" >
+		insert into spost(sno, stitle, sucode, swriter, sstartday, sendday, splace, scontent, senrolldate, sopen, spnum)
+		values ( (select concat('s', (select nvl(max(to_number(substr(sno,2))),0)+1 from spost))from dual)  , #{stitle}, #{sucode}, #{swriter}, #{sstartday}, #{sendday}, null, 
+				   #{scontent}, sysdate, #{sopen}, #{spnum} )
+</insert>
+
+<delete id="deleteProject" parameterType="string">
+		delete from project where PROJECT_NUM = #{ projectNumber }
+</delete>
+
+<delete id="delStar" parameterType="com.beet.HWABO.red.model.vo.UserProject">
+		delete from star where star = #{ star } and ucode = #{ ucode } 
+</delete>
+
+<delete id="deleteProgress" parameterType="string">
+		delete from Progress where PROJECT_NUM = #{ projectNumber } 
+</delete>
+
+<delete id="delChat" parameterType="com.beet.HWABO.red.model.vo.Chatting">
+		delete from chatting where project_num = #{ project_num } and ucode = #{ ucode } and chat_time = #{ chat_time }
+</delete>
+
+<delete id="delChatAll" parameterType="com.beet.HWABO.red.model.vo.Chatting">
+		delete from chatting where project_num = #{ project_num }
+</delete>
+
+<delete id="deleteCalendarAll" parameterType="PjMember">
+		delete from calendar where pnum = #{ pnum } and ucode = #{ ucode }
+</delete>
+
+<delete id="deleteCalendar" parameterType="com.beet.HWABO.red.model.vo.Calendar">
+		delete from calendar where title = #{ title } and ucode = #{ ucode } and pnum = #{ pnum }
+</delete>
+
+<delete id="deleteSpost" parameterType="com.beet.HWABO.red.model.vo.Calendar">
+		<if test="calno == null || calno =='' ">
+		delete from spost where stitle = #{ title } and sucode = #{ ucode } and spnum = #{ pnum }
+		</if>
+		<if test="calno != null and calno !=''">
+		delete from spost where sno = #{ calno } and sucode = #{ ucode } and spnum = #{ pnum }
+		</if>
+</delete>
+
+<update id="updateProjectProgress" parameterType="com.beet.HWABO.red.model.vo.MemberProject">
+		update project set goal = #{ goal }, done = #{ done } where project_num = #{ project_num }
+</update>
+
+<update id="updateChatSpeed" parameterType="com.beet.HWABO.red.model.vo.ChatSpeed">
+		update chat_speed set speed = #{ speed } where fk = #{ fk }
+</update>
+
+<update id="updateSpost" parameterType="com.beet.HWABO.red.model.vo.SpostFixed">
+	update spost set sstartday=#{sstartday}, sendday=#{sendday}
+	<if test="sno != null and sno !=''">
+	where sno=#{sno}
+	</if>
+	<if test="sno == null || sno =='' ">
+	where stitle=#{stitle}
+	</if>
+</update>
+
+</mapper>

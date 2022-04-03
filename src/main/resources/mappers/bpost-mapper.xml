@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bpostMapper">
+
+ 	<resultMap type="Bpost" id="resultBpost">
+		<id column="bno" property="bno" />
+		<result column="btitle" property="btitle" />
+		<result column="bucode" property="bucode" />
+		<result column="bwriter" property="bwriter" />
+		<result column="bstartday" property="bstartday" />
+		<result column="bendday" property="bendday" />
+		<result column="bkind" property="bkind" />
+		<result column="bcharge" property="bcharge" />
+		<result column="bcontent" property="bcontent" />
+		<result column="benrolldate" property="benrolldate" />
+		<result column="bopen" property="bopen" />
+		<result column="brenamefile" property="brenamefile" />
+		<result column="boriginfile" property="boriginfile" />
+		<result column="bpnum" property="bpnum" />
+		<result column="bchargename" property="bchargename" />
+		
+	
+	</resultMap> 
+	
+		<resultMap type="Bpost" id="resultBpostfile">
+		
+		<result column="bwriter" property="bwriter" />
+		<result column="benrolldate" property="benrolldate" />
+		<result column="brenamefile" property="brenamefile" />
+		<result column="boriginfile" property="boriginfile" />
+	
+
+	</resultMap> 
+	
+	
+	
+
+<insert id="insertBpost" parameterType="Bpost" >
+
+	 <if test="boriginfile != null"> 
+	insert into bpost
+	(bno, btitle, bucode, bwriter, bstartday, bendday, bkind, bcharge, bcontent, benrolldate, bopen, brenamefile, boriginfile, bpnum, bchargename)
+	values ((select concat('b', (select nvl(max(to_number(substr(bno, 2))),0)+1 from bpost))from dual), 
+	#{btitle}, #{bucode}, #{bwriter}, #{bstartday}, #{bendday}, #{bkind}, #{bcharge}, #{bcontent}, sysdate, 
+	#{bopen}, #{brenamefile}, #{boriginfile}, #{bpnum}, #{bchargename})
+	
+	
+	
+	</if>
+	<if test="boriginfile == null">
+	insert into bpost
+	(bno, btitle, bucode, bwriter, bstartday, bendday, bkind, bcharge, bcontent, benrolldate, bopen, bpnum, bchargename)
+	values ((select concat('b', (select nvl(max(to_number(substr(bno, 2))),0)+1 from bpost))from dual), 
+	 #{btitle}, #{bucode}, #{bwriter}, #{bstartday}, #{bendday}, #{bkind}, #{bcharge}, #{bcontent}, sysdate, #{bopen}, #{bpnum}, #{bchargename})
+
+	</if> 
+</insert>
+
+
+<select id="selectList" resultMap="resultBpost">
+
+	select * from bpost
+    order by benrolldate desc
+
+</select>
+
+<select id="selectBno" resultType="string">
+
+	select max(bno)
+	from bpost
+	
+</select>
+
+
+
+
+
+
+<select id="selectfilelist" parameterType="bpost" resultMap="resultBpost">
+
+	select *
+	from bpost
+	where bno = #{bno}
+	
+
+</select>
+
+
+
+<delete id="deleteBpost" parameterType="Bpost">
+	delete from bpost 
+	where bno = #{ bno } 
+
+
+</delete>
+
+
+<select id="selectBpost" parameterType="bpost" resultMap="resultBpost">
+
+	select * 
+	from bpost
+	where bno = #{bno}
+
+</select>
+
+
+
+<update id="updateBpost" parameterType="Bpost">
+	update bpost
+	
+	<if test="bchargename != null">
+	
+	set btitle = #{btitle}, bcharge = #{bcharge}, bstartday = #{bstartday}, bendday = #{bendday},
+		 bchargename = #{bchargename}, bkind = #{bkind},
+		
+		<if test="boriginfile != null">
+		boriginfile = #{boriginfile}, brenamefile = #{brenamefile},
+		</if>
+		<if test="bcontent != null">
+		bcontent = #{bcontent},
+		</if>
+
+		<if test="boriginfile == null">
+		boriginfile = null, brenamefile = null,
+		</if>
+	</if>
+	<if test="bchargename == null">
+	
+	set btitle = #{btitle}, bstartday = #{bstartday}, bendday = #{bendday},
+		bkind = #{bkind},
+		
+		<if test="boriginfile != null">
+		boriginfile = #{boriginfile}, brenamefile = #{brenamefile},
+		</if>
+		<if test="bcontent != null">
+		bcontent = #{bcontent},
+		</if>
+
+		<if test="boriginfile == null">
+		boriginfile = null, brenamefile = null,
+		</if>
+	</if>
+	
+	bpnum = #{bpnum}
+	where bno = #{bno}
+
+</update>
+
+
+<update id="bkindupdate" parameterType="Bkindup">
+	update bpost 
+	set bkind = #{bkind}
+	where bno = #{bno}
+</update>
+
+<!-- 보관함 관련!!! -->
+
+
+<!-- <update id="updateOpen" parameterType="string">
+
+
+update bpost
+set bopen =
+case
+when bopen = 'n' then 'y'
+when bopen = 'y' then 'n'
+end
+where bno = #{bno}
+
+
+</update> -->
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

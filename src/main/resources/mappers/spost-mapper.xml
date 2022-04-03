@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spostMapper">
+
+<!-- spost insert -->
+	<insert id="insertSpost" parameterType="Spost" >
+		insert into spost(sno, stitle, sucode, swriter, sstartday, sendday, splace, scontent, senrolldate, sopen, spnum)
+		values ( (select concat('s', (select nvl(max(to_number(substr(sno,2))),0)+1 from spost))from dual)  , #{stitle}, #{sucode}, #{swriter}, #{sstartday}, #{sendday}, #{splace}, 
+				   #{scontent}, sysdate, #{sopen}, #{spnum} )
+	</insert>
+
+<!-- spost 전체 조회 -->
+	<select id="selectSpost" resultType="Spost">
+		select SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, 
+		concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+		from spost
+	</select>
+
+<!-- spost 1개 조회 -->
+	<select id="selectOneSpost" resultType="Spost" parameterType="string">
+		select SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, 
+		concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+		from spost where sno = #{sno}
+	</select>
+
+	
+<!-- delete spost -->
+<delete id="deleteSpost" parameterType="string">
+	delete from spost where sno = #{sno}
+</delete>
+
+<!-- update spost -->
+<update id="updateSpost">
+	update spost
+	<if test="splace != null and scontent != null">
+		set stitle=#{stitle}, sstartday=#{sstartday}, sendday=#{sendday}, splace=#{splace}, scontent=#{scontent}
+	</if>
+	<if test="splace != null and scontent == null">
+		set stitle=#{stitle}, sstartday=#{sstartday}, sendday=#{sendday}, splace=#{splace},
+	</if>
+	<if test="splace == null and scontent != null">
+		set stitle=#{stitle}, sstartday=#{sstartday}, sendday=#{sendday}, scontent=#{scontent}
+	</if>
+	<if test="splace == null and scontent == null">
+		set stitle=#{stitle}, sstartday=#{sstartday}, sendday=#{sendday}
+	</if>
+	where sno=#{sno}
+</update>
+
+
+
+
+
+</mapper>

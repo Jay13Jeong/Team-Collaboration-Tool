@@ -1,0 +1,66 @@
+.progress-bar1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #4e73df;
+	transition: width .6s ease
+}
+.progress-bar2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #F6CECE;
+	transition: width .6s ease
+}
+.progress-bar3 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #F5F6CE;
+	transition: width .6s ease
+}
+.progress-bar4 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #CEF6CE;
+	transition: width .6s ease
+}
+.progress-bar5 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #F5A9F2;
+	transition: width .6s ease
+}
+.progress-bar6 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #D8CEF6;
+	transition: width .6s ease
+}

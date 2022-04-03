@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* 
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.wrap {
+	width: 100%;
+}
+
+.header, .content, .footer {
+	width: 100%;
+	float: left;
+}
+
+.header, .footer {
+	height: 8em;
+}
+
+.sidebar {
+	width: 10%;
+	height: 600px;
+	background-color: #FFBB00;
+	float: left;
+}
+
+.page_content {
+	width: 90%;
+	height: 600px;
+	background-color: #EAEAEA;
+	float: left;
+}
+
+.header{
+	background-color: #ABF200;
+}
+
+.footer{
+	background-color: #FF00DD;
+} */

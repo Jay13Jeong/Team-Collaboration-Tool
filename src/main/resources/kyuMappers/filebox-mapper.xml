@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fileboxMapper">
+
+<!-- <reaultMap type="Filebox" id="resultFilebox">
+	
+		
+		<result column="no" property="no" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="enroll" property="enroll" />
+		<result column="o" property="o" />
+		<result column="r" property="r" />
+	
+	</reaultMap>
+ -->
+
+
+<select id="selectList" parameterType="string" resultType="Filebox">
+
+(select bno as no, btitle as title, bwriter as writer, benrolldate as enroll, boriginfile as o, brenamefile as r, bpnum as pnum
+from bpost
+where not boriginfile is null and bpnum = #{pnum} and (substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'jpg'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'bmp'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'png'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'tiff'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'raw'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'gif'))
+													
+union all
+(select  cno as no, ctitle as title, cwriter as writer, cenrolldate as enroll, o ,r, cpnum as pnum 
+from cfile4
+where not o is null and cpnum = #{pnum} and (substr(o, instr(o,'.',-1)+1) = 'jpg'
+										or substr(o, instr(o,'.',-1)+1) = 'bmp'
+										or substr(o, instr(o,'.',-1)+1) = 'png'
+										or substr(o, instr(o,'.',-1)+1) = 'tiff'
+										or substr(o, instr(o,'.',-1)+1) = 'raw'
+										or substr(o, instr(o,'.',-1)+1) = 'gif'))
+order by enroll desc
+
+
+</select> 
+
+
+<select id="selectTxtList" parameterType="string" resultType="Filebox">
+
+(select bno as no, btitle as title, bwriter as writer, benrolldate as enroll, boriginfile as o, brenamefile as r, bpnum as pnum
+from bpost
+where not boriginfile is null and bpnum = #{pnum} and (substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'txt'
+												  	or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'ppt'
+												  	or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'xls'
+												  	or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'pdf'
+												  	or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'ai'
+												  	or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'psd'
+												  	or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'hwp'
+												  	or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'doc'))
+												  	
+union all
+(select  cno as no, ctitle as title, cwriter as writer, cenrolldate as enroll, o ,r, cpnum as pnum 
+from cfile4
+where not o is null and cpnum = #{pnum} and (substr(o, instr(o,'.',-1)+1) = 'txt'
+										or substr(o, instr(o,'.',-1)+1) = 'ppt'
+										or substr(o, instr(o,'.',-1)+1) = 'xls'
+										or substr(o, instr(o,'.',-1)+1) = 'pdf'
+										or substr(o, instr(o,'.',-1)+1) = 'ai'
+										or substr(o, instr(o,'.',-1)+1) = 'psd'
+										or substr(o, instr(o,'.',-1)+1) = 'hwp'
+										or substr(o, instr(o,'.',-1)+1) = 'doc'))
+										
+order by enroll desc
+</select>
+
+
+
+<select id="selectZipList" parameterType="string" resultType="Filebox">
+
+(select bno as no, btitle as title, bwriter as writer, benrolldate as enroll, boriginfile as o, brenamefile as r, bpnum as pnum
+from bpost
+where not boriginfile is null and bpnum = #{pnum} and (substr(boriginfile, instr(boriginfile,'.',-1)+1) = '7z'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'zip'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'alz'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'egg'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'rar'))
+							
+
+union all
+(select  cno as no, ctitle as title, cwriter as writer, cenrolldate as enroll, o ,r, cpnum as pnum 
+from cfile4
+where not o is null and cpnum = #{pnum} and (substr(o, instr(o,'.',-1)+1) = '7z'
+										or substr(o, instr(o,'.',-1)+1) = 'zip'
+										or substr(o, instr(o,'.',-1)+1) = 'alz'
+										or substr(o, instr(o,'.',-1)+1) = 'egg'
+										or substr(o, instr(o,'.',-1)+1) = 'rar'))
+
+order by enroll desc
+</select>
+
+
+
+<select id="selectPptList" parameterType="string" resultType="Filebox">
+
+(select bno as no, btitle as title, bwriter as writer, benrolldate as enroll, boriginfile as o, brenamefile as r, bpnum as pnum
+from bpost
+where not boriginfile is null and bpnum = #{pnum} and (substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'ppt'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'pptm'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'pptx'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'pdf'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'thmx'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'xml'
+													or substr(boriginfile, instr(boriginfile,'.',-1)+1) = 'ppsm'))
+							
+
+union all
+(select  cno as no, ctitle as title, cwriter as writer, cenrolldate as enroll, o ,r, cpnum as pnum 
+from cfile4
+where not o is null and cpnum = #{pnum} and (substr(o, instr(o,'.',-1)+1) = 'ppt'
+										or substr(o, instr(o,'.',-1)+1) = 'pptm'
+										or substr(o, instr(o,'.',-1)+1) = 'pptx'
+										or substr(o, instr(o,'.',-1)+1) = 'pdf'
+										or substr(o, instr(o,'.',-1)+1) = 'thmx'
+										or substr(o, instr(o,'.',-1)+1) = 'xml'
+										or substr(o, instr(o,'.',-1)+1) = 'ppsm'))
+
+order by enroll desc
+</select>
+
+<select id="selectEtcList" parameterType="string" resultType="Filebox">
+
+(select bno as no, btitle as title, bwriter as writer, benrolldate as enroll, boriginfile as o, brenamefile as r, bpnum as pnum
+from bpost
+where not boriginfile is null and bpnum = #{pnum} and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'ppt'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'pptm'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'pptx'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'thmx'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'xml'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'ppsm'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'jpg'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'bmp'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'png'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'tiff'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'raw'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'txt'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'ppt'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'xls'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'pdf'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'ai'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'psd'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'hwp'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'doc'
+												  	and substr(boriginfile, instr(boriginfile,'.',-1)+1) != '7z'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'zip'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'alz'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'egg'
+													and substr(boriginfile, instr(boriginfile,'.',-1)+1) != 'rar')
+							
+							
+
+union all
+(select  cno as no, ctitle as title, cwriter as writer, cenrolldate as enroll, o ,r, cpnum as pnum 
+from cfile4
+where not o is null and cpnum = #{pnum} and substr(o, instr(o,'.',-1)+1) != 'ppt'
+										and substr(o, instr(o,'.',-1)+1) != 'pptm'
+										and substr(o, instr(o,'.',-1)+1) != 'pptx'
+										and substr(o, instr(o,'.',-1)+1) != 'thmx'
+										and substr(o, instr(o,'.',-1)+1) != 'xml'
+										and substr(o, instr(o,'.',-1)+1) != 'ppsm'
+										and substr(o, instr(o,'.',-1)+1) != 'jpg'
+										and substr(o, instr(o,'.',-1)+1) != 'bmp'
+										and substr(o, instr(o,'.',-1)+1) != 'png'
+										and substr(o, instr(o,'.',-1)+1) != 'tiff'
+										and substr(o, instr(o,'.',-1)+1) != 'raw'
+										and substr(o, instr(o,'.',-1)+1) != 'txt'
+										and substr(o, instr(o,'.',-1)+1) != 'ppt'
+										and substr(o, instr(o,'.',-1)+1) != 'xls'
+										and substr(o, instr(o,'.',-1)+1) != 'pdf'
+										and substr(o, instr(o,'.',-1)+1) != 'ai'
+										and substr(o, instr(o,'.',-1)+1) != 'psd'
+										and substr(o, instr(o,'.',-1)+1) != 'hwp'
+										and substr(o, instr(o,'.',-1)+1) != 'doc'
+										and substr(o, instr(o,'.',-1)+1) != '7z'
+										and substr(o, instr(o,'.',-1)+1) != 'zip'
+										and substr(o, instr(o,'.',-1)+1) != 'alz'
+										and substr(o, instr(o,'.',-1)+1) != 'egg'
+										and substr(o, instr(o,'.',-1)+1) != 'rar')
+										
+
+order by enroll desc
+</select>
+
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

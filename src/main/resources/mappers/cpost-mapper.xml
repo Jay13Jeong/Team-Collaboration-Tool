@@ -1,0 +1,107 @@
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cpostMapper">
+	<resultMap type="Cpost" id="rsltCpost">
+		<id column="cno" property="cno" />
+		<result column="ctitle" property="ctitle" />
+		<result column="cucode" property="cucode" />
+		<result column="cwriter" property="cwriter" />
+		<result column="ccontent" property="ccontent" />
+		<result column="cenrolldate" property="cenrolldate" />
+		<result column="cpnum" property="cpnum" />
+	</resultMap>
+
+	<resultMap type="AddOn" id="updateCfile">
+		<id column="cno" property="cno" />
+		<result column="ofile1" property="ofile1" />
+		<result column="rfile1" property="rfile1" />
+		<result column="ofile2" property="ofile2" />
+		<result column="rfile2" property="rfile2" />
+		<result column="ofile3" property="ofile3" />
+		<result column="rfile3" property="rfile3" />
+	</resultMap>
+
+	<insert id="insertCpost" parameterType="Cpost">
+		insert into cpost (cno, cpnum, cucode, ctitle, cwriter, ccontent)
+		values ('c' || cpost_seq.nextval, #{cpnum}, #{cucode, jdbcType=VARCHAR},
+		#{ctitle, jdbcType=VARCHAR}, #{cwriter, jdbcType=VARCHAR},
+		#{ccontent})
+	</insert>
+
+	<select id="selectCno" resultType="string">
+		select max(cno) from cpost
+	</select>
+
+	<update id="updateCfile" parameterType="AddOn">
+		merge into addon using dual on (cno = #{cno})
+		when matched then
+		update set
+		<if test="rfile1 != null and rfile2 == null"> ofile1 = #{ofile1, jdbcType=VARCHAR}, rfile1 = #{rfile1, jdbcType=VARCHAR}
+			when not matched then
+			insert (cno, ofile1, rfile1)
+			values (#{cno}, #{ofile1, jdbcType=VARCHAR}, #{rfile1, jdbcType=VARCHAR})
+		</if>
+		<if test="rfile2 != null and rfile3 == null ">
+			ofile1 = #{ofile1, jdbcType=VARCHAR}, rfile1 = #{rfile1, jdbcType=VARCHAR}, ofile2 = #{ofile2, jdbcType=VARCHAR}, rfile2 =
+			#{rfile2, jdbcType=VARCHAR}
+			when not matched then
+			insert (cno, ofile1, rfile1, ofile2, rfile2)
+			values (#{cno}, #{ofile1, jdbcType=VARCHAR}, #{rfile1, jdbcType=VARCHAR}, #{ofile2, jdbcType=VARCHAR}, #{rfile2, jdbcType=VARCHAR})
+		</if>
+		<if test="rfile3 !=null"> ofile1 = #{ofile1, jdbcType=VARCHAR}, rfile1 = #{rfile1, jdbcType=VARCHAR}, ofile2 =
+			#{ofile2, jdbcType=VARCHAR}, rfile2 = #{rfile2, jdbcType=VARCHAR}, ofile3 = #{ofile3, jdbcType=VARCHAR}, rfile3 = #{rfile3, jdbcType=VARCHAR}
+			when not matched then
+			insert (cno, ofile1, rfile1, ofile2, rfile2, ofile3, rfile3)
+			values (#{cno}, #{ofile1, jdbcType=VARCHAR}, #{rfile1, jdbcType=VARCHAR}, #{ofile2, jdbcType=VARCHAR}, #{rfile2, jdbcType=VARCHAR}, #{ofile3, jdbcType=VARCHAR},
+			#{rfile3})
+		</if>
+	</update>
+	<update id="updateCfileAll" parameterType="AddOn">
+	merge into addon using dual on (cno = #{cno})
+	when matched then
+	update set 
+	ofile1 = #{ofile1, jdbcType=VARCHAR}, rfile1 = #{rfile1, jdbcType=VARCHAR}, ofile2 = #{ofile2, jdbcType=VARCHAR}, rfile2 = #{rfile2, jdbcType=VARCHAR}, ofile3 = #{ofile3, jdbcType=VARCHAR}, rfile3 = #{rfile3, jdbcType=VARCHAR}
+	when not matched then
+	insert (cno, ofile1, rfile1, ofile2, rfile2, ofile3, rfile3)
+	values (#{cno}, #{ofile1, jdbcType=VARCHAR}, #{rfile1, jdbcType=VARCHAR}, #{ofile2, jdbcType=VARCHAR}, #{rfile2, jdbcType=VARCHAR}, #{ofile3, jdbcType=VARCHAR}, #{rfile3, jdbcType=VARCHAR})
+	</update>
+	
+	<select id="selectCpList" resultMap="rsltCpost">
+		select * from cpost
+		left join addon using (cno)
+		order by cenrolldate desc
+	</select>
+
+	<select id="selectCpOne" parameterType="string"
+		resultMap="rsltCpost">
+		select * from cpost
+		left join addon using (cno)
+		where cno = #{cno}
+	</select>
+
+	<update id="updateCpost" parameterType="AddOn">
+		update cpost
+		set ctitle = #{ctitle}, ccontent=#{ccontent}
+		where cno = #{cno}
+	</update>
+
+
+	<delete id="deleteCpost" parameterType="string" >
+		declare
+		begin
+		delete from cpost where cno = #{cno};
+		delete from addon where cno = #{cno};
+		end;
+	</delete>
+	
+	<delete id="deleteAddon" parameterType="string">
+	delete from addOn
+	where cno = #{cno}
+	</delete>
+	<select id="notmb">
+	select * from member
+	left join pjmember using (ucode)
+	where pnum = #{pnum}
+	</select>
+</mapper>

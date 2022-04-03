@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cabinetMapper">
+
+
+<resultMap type="Cabinet" id="resultno">
+	<result column="no" property="no" />
+
+</resultMap>
+
+
+<insert id="insertCabinet" parameterType="Cabinet">
+
+	insert into cabinet
+	values (#{ucode}, #{no}, sysdate, #{pnum})
+
+</insert>
+
+
+<delete id="deleteCabinet" parameterType="Cabinet">
+	
+	delete from cabinet
+	where no = #{no} and ucode= #{ucode} and pnum = #{pnum}
+
+</delete>
+
+<delete id="deleteWithCabinet" parameterType="string">
+	delete from cabinet
+	where no = #{no}
+</delete>
+
+<select id="selectUser" parameterType="cabinet" resultType="cabinet">
+
+	select (no)
+	from cabinet
+	where ucode = #{ucode} and pnum = #{pnum}
+
+</select>
+
+<select id="selectCabinetList" parameterType="com.beet.HWABO.cabinet.model.vo.realpost" resultType="com.beet.HWABO.cabinet.model.vo.realpost">
+	select no, ss, FIRSTWORD, NO, ENROLLDATE, PNUM, UCODE, SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, CNO, CPNUM, CTITLE, CUCODE, CWRITER, CCONTENT, CENROLLDATE, COPEN, HASHTAGS, MENTIONS, OFILE1, RFILE1, OFILE2, RFILE2, OFILE3, RFILE3, BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME,
+	concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+	from
+	(select no, enrolldate ss
+	from cabinet
+	where ucode = #{ucode} and pnum = #{pnum} ) a left join realpost b using (no)
+	order by a.ss desc
+	
+
+
+</select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

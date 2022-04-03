@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loveMapper">
+
+	<select id="selectCountLove">
+		select count(*) from love 
+		where no=#{no} 
+	</select>
+	
+	<select id="selectDuplicationChk">
+		select count(*) from love 
+		where no=#{no} and ucode=#{ucode}
+	</select>
+
+	<insert id="insertSpostLove">
+		insert into love
+		values( #{no}, #{ucode} );
+	</insert>
+
+	<delete id="deleteSpostLove">
+		delete love 
+		where no=#{no} and ucode=#{ucode}
+	</delete>
+
+</mapper>

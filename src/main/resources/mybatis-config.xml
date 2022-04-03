@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC
+"-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		
+		<!-- 다운 -->
+		<typeAlias type="com.beet.HWABO.spost.model.vo.Spost" alias="Spost" />
+		<typeAlias type="com.beet.HWABO.spost.model.vo.Post" alias="Post" />
+		<typeAlias type="com.beet.HWABO.spost.model.vo.Bpostchk" alias="Bpostchk" />
+		<typeAlias type="com.beet.HWABO.abc.model.vo.Bkindup" alias="Bkindup" />
+		<typeAlias type="com.beet.HWABO.abc.model.vo.Love" alias="Love" />
+		<typeAlias type="com.beet.HWABO.abc.model.vo.Postreply" alias="Postreply" />
+		
+		
+		<!-- 댓글 -->
+		<typeAlias type="com.beet.HWABO.reply.model.vo.Reply" alias="Reply" />
+		 
+		
+		<typeAlias type="com.beet.HWABO.bpost.model.vo.Bpost" alias="Bpost"/>
+
+		<typeAlias type="com.beet.HWABO.red.model.vo.Project" alias="Project" />
+		
+		
+	
+		<typeAlias type="com.beet.HWABO.cproject.model.vo.Cproject" alias="Cproject"/>
+	
+		<typeAlias type="com.beet.HWABO.projectp.model.vo.Projectp" alias="Projectp"/>
+		
+		<!-- 규림 -->
+		<typeAlias type="com.beet.HWABO.note.model.vo.Note" alias="Note"/>
+		<typeAlias type="com.beet.HWABO.cabinet.model.vo.Cabinet" alias="Cabinet"/>
+		<typeAlias type="com.beet.HWABO.filebox.model.vo.Filebox" alias="Filebox"/>
+		
+		
+		<typeAlias type="com.beet.HWABO.chat.model.vo.Chat" alias="Chat"/>
+
+		<!-- 수현 -->
+		<typeAlias type="com.beet.HWABO.member.model.vo.Member" alias="Member" />
+		<typeAlias type="com.beet.HWABO.member.model.vo.PjMember" alias="PjMember" />
+		<typeAlias type="com.beet.HWABO.cpost.model.vo.Cpost" alias="Cpost"/>
+        <typeAlias type="com.beet.HWABO.cpost.model.vo.AddOn" alias="AddOn"/>
+        <typeAlias type="com.beet.HWABO.cpost.model.vo.AddTag" alias="AddTag"/>
+        <typeAlias type="com.beet.HWABO.cpost.model.vo.HashTag" alias="HashTag"/>
+        <typeAlias type="com.beet.HWABO.invite.model.vo.Invite" alias="Invite"/>
+	</typeAliases>
+
+	<mappers>
+	
+		<!-- 다운 -->
+		<mapper resource="mappers/spost-mapper.xml" />
+		<mapper resource="mappers/post-mapper.xml" />
+		<mapper resource="mappers/love-mapper.xml" />
+		
+		
+		<mapper resource="mappers/postreply-mapper.xml" />
+		<mapper resource="mappers/reply-mapper.xml" />
+		
+		
+		<mapper resource="mappers/bpost-mapper.xml" />
+		
+		
+		<mapper resource="redMappers/red-mapper.xml" />
+
+
+		<!-- 규림 -->
+		<mapper resource="kyuMappers/note-mapper.xml" />
+		<mapper resource="kyuMappers/cabinet-mapper.xml" />
+		<mapper resource="kyuMappers/filebox-mapper.xml" />
+
+		<!-- 수현 -->
+	    <mapper resource="mappers/member-mapper.xml" />
+        <mapper resource="mappers/cpost-mapper.xml" />
+        <mapper resource="mappers/invite-mapper.xml" />
+        <mapper resource="mappers/member-mapper.xml" />
+	</mappers>
+
+</configuration>
+

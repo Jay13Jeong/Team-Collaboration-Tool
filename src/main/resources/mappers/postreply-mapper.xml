@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="postreplyMapper">
+
+<!-- 
+
+	<select id="commentCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM POSTREPLY
+    </select>
+    
+    <select id="commentList" resultType="">
+        SELECT
+            *
+        FROM POSTREPLY
+    </select>
+    
+    
+    <insert id="commentInsert" parameterType="">
+        INSERT INTO
+        POSTREPLY (REPLYNO, NO, CONTENT, UCODE, UNAME, ENROLLDATE)
+        VALUES(#{REPLYNO},#{NO},#{CONTENT},#{UCODE}, #{UNAME}, SYSDATE) 
+    </insert>
+    
+ 
+    
+    <update id="commentUpdate" parameterType="">
+       
+    </update>
+    
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM POSTREPLY WHERE REPLYNO = #{REPLYNO}
+    </delete>
+ -->
+
+</mapper>
+
+
+

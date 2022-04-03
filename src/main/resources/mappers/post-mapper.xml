@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="postMapper">
+
+	<resultMap type="Post" id="resultPost">
+		<!-- spost -->
+		<result column="sno" property="sno" />
+		<result column="stitle" property="stitle" />
+		<result column="bucode" property="bucode" />
+		<result column="swriter" property="swriter" />
+		<result column="sstartday" property="sstartday" />
+		<result column="sendday" property="sendday" />
+		<result column="splace" property="splace" />
+		<result column="scontent" property="scontent" />
+		<result column="senrolldate" property="senrolldate" />
+		<result column="sopen" property="sopen" />
+		<result column="spnum" property="spnum" />
+
+		<!-- bpost -->
+		<result column="bno" property="bno" />
+		<result column="btitle" property="btitle" />
+		<result column="bucode" property="bucode" />
+		<result column="bwriter" property="bwriter" />
+		<result column="bstartday" property="bstartday" />
+		<result column="bendday" property="bendday" />
+		<result column="bkind" property="bkind" />
+		<result column="bcharge" property="bcharge" />
+		<result column="bcontent" property="bcontent" />
+		<result column="benrolldate" property="benrolldate" />
+		<result column="bopen" property="bopen" />
+		<result column="brenamefile" property="brenamefile" />
+		<result column="boriginfile" property="boriginfile" />
+		<result column="bpnum" property="bpnum" />
+		<result column="bchargename" property="bchargename" />
+		<!-- cpost -->
+
+		
+		<!-- vpost -->
+		
+		
+		<!-- dopost -->
+</resultMap>
+	
+	
+<!-- 업부 모아보기 페이지용 -->
+<select id="selectBpost" parameterType="PjMember" resultType="Bpost">
+
+	select BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME
+	from bpost
+	where bucode=#{ucode}
+			and
+			bpnum=#{pnum}
+			or
+			bcharge like  '%'||#{ucode}||'%'
+    order by benrolldate desc
+
+</select>
+
+<!--요청받은 업무 조회용 bpost -->	
+<select id="selectMyRequestedBPOST" parameterType="PjMember" resultType="Bpost">
+	select BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME
+	from bpost
+	where bcharge like  '%'||#{ucode}||'%'
+			and
+			bpnum=#{pnum}
+    order by benrolldate desc
+</select>
+
+
+<!-- 업무모아보기페이지  상세보기용 -->
+<select id="selectOneBpost" parameterType="string" resultType="Bpost">
+	select * from bpost 
+	where bno = #{bno}
+</select>
+	
+<!-- 나의 화보, 팀원의 화보 조회용  -->	
+<select id="selectPost" parameterType="PjMember" resultType="Post">
+	select FIRSTWORD, NO, ENROLLDATE, PNUM, UCODE, SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, CNO, CPNUM, CTITLE, CUCODE, CWRITER, CCONTENT, CENROLLDATE, COPEN, HASHTAGS, MENTIONS, OFILE1, RFILE1, OFILE2, RFILE2, OFILE3, RFILE3, BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME,
+	concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+	 from realpost 
+	where ( ucode = #{ucode}  or  bcharge like '%'||#{ucode}||'%' )
+	and	( pnum = #{pnum} )
+	order by enrolldate desc
+</select>
+
+<!-- 나의 화보, 팀원의 화보  spost 조회용  -->	
+<select id="selectPostspost" parameterType="PjMember" resultType="Post">
+	select FIRSTWORD, NO, ENROLLDATE, PNUM, UCODE, SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, CNO, CPNUM, CTITLE, CUCODE, CWRITER, CCONTENT, CENROLLDATE, COPEN, HASHTAGS, MENTIONS, OFILE1, RFILE1, OFILE2, RFILE2, OFILE3, RFILE3, BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME,
+	concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+	 from realpost 
+	where ( ucode = #{ucode}  or  bcharge like '%'||#{ucode}||'%' )
+	and	( pnum = #{pnum} )
+	and   ( firstword = 's' )
+	order by enrolldate desc
+</select>
+
+
+<!-- 나의 화보, 팀원의 화보 조회용 bpost -->	
+<select id="selectPostbpost" parameterType="PjMember" resultType="Post">
+	select FIRSTWORD, NO, ENROLLDATE, PNUM, UCODE, SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, CNO, CPNUM, CTITLE, CUCODE, CWRITER, CCONTENT, CENROLLDATE, COPEN, HASHTAGS, MENTIONS, OFILE1, RFILE1, OFILE2, RFILE2, OFILE3, RFILE3, BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME,
+	concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+	 from realpost 
+	where ( ucode = #{ucode}  or  bcharge like '%'||#{ucode}||'%' )
+	and	( pnum = #{pnum} )
+	and   ( firstword = 'b' )
+	order by enrolldate desc
+</select>
+
+
+
+
+
+
+
+<!-- 나의 화보, 팀원의 화보 조회용 cpost  -->	
+<select id="selectPostcpost" parameterType="PjMember" resultType="Post">
+	select FIRSTWORD, NO, ENROLLDATE, PNUM, UCODE, SNO, STITLE, SUCODE, SWRITER, SSTARTDAY, SENDDAY, SPLACE, SCONTENT, SENROLLDATE, SOPEN, SPNUM, CNO, CPNUM, CTITLE, CUCODE, CWRITER, CCONTENT, CENROLLDATE, COPEN, HASHTAGS, MENTIONS, OFILE1, RFILE1, OFILE2, RFILE2, OFILE3, RFILE3, BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME,
+	concat(concat(to_char(sstartday, 'yyyy-mm-dd'), 'T'),to_char(sstartday, 'hh24:mi') )as stringstart, concat(concat(to_char(sendday, 'yyyy-mm-dd'), 'T'),to_char(sendday, 'hh24:mi') )as stringend 
+	 from realpost 
+	where ( ucode = #{ucode}  or  bcharge like '%'||#{ucode}||'%' )
+	and	( pnum = #{pnum} )
+	and   ( firstword = 'c' )
+	order by enrolldate desc
+</select>
+
+
+
+
+<select id="chooseBpost" resultType="Bpost">
+	select BNO, BTITLE, BUCODE, BWRITER, BSTARTDAY, BENDDAY, BKIND, BCHARGE, BCONTENT, BENROLLDATE, BOPEN, BRENAMEFILE, BORIGINFILE, BPNUM, BCHARGENAME
+	from bpost
+	where bucode=#{ucode}
+			and
+			bpnum=#{pnum}
+			and
+			bkind in 
+			<foreach item="item" index="index" collection="types"
+      			open="(" separator="," close=")">
+			        #{item}
+			  </foreach>
+    order by benrolldate desc
+
+</select>
+
+
+
+
+
+
+
+
+
+
+</mapper>

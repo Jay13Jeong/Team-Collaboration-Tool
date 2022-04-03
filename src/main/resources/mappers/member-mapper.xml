@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+	<resultMap id="resultMember" type="Member">
+		<id property="ucode" column="ucode" />
+		<result property="uemail" column="uemail" />
+		<result property="upwd" column="upwd" />
+		<result property="uname" column="uname" />
+		<result property="uphone" column="uphone" />
+		<result property="ugroup" column="ugroup" />
+		<result property="urole" column="urole" />
+		<result property="ust" column="ust" />
+		<result property="ucert" column="ucert" />
+		<result property="udate" column="udate" />
+		<result property="signtype" column="signtype" />
+		<result property="accesstoken" column="accesstoken" />
+		<result property="uimg" column="uimg" />
+		<result property="uactive" column="uactive" />
+		<result property="pnum" column="pnum" />
+		<result property="pjadmin" column="pjadmin" />
+		<result property="invtkey" column="invtkey" />
+		<result property="invtuse" column="invtuse" />
+	</resultMap>
+
+	<resultMap id="resultInvite" type="Invite">
+		<id property="invtkey" column="invtkey" />
+		<result property="ucode" column="ucode" />
+		<result property="pnum" column="pnum" />
+		<result property="invtemail" column="invtemail" />
+		<result property="invtuse" column="invtuse" />
+		<result property="exprtdate" column="exprtdate" />
+	</resultMap>
+
+	
+	<resultMap id="resultProject" type="com.beet.HWABO.red.model.vo.Project">
+		<id property="project_num" column="project_num" />
+		<result property="name" column="name" />
+		<result property="explain" column="explain" />
+		<result property="open" column="open" />		
+		<result property="uploaddate" column="uploaddate" />
+	</resultMap>
+
+	<insert id="insertUser" parameterType="Member">
+		insert into member (ucode,
+		uemail, upwd, uname, signtype, accesstoken, uimg)
+		values ('h' ||
+		member_seq.nextval, #{uemail}, #{upwd}, #{uname}, 'h', #{accesstoken},
+		#{uimg})
+	</insert>
+
+	<select id="selectLogin" parameterType="Member"
+		resultType="Member">
+		select * from member
+		where uemail = #{uemail} and signtype= #{signtype}
+	</select>
+	
+	<select id="selectEmailCheck" parameterType="string" resultType="_int">
+		select count(*) from member
+		where uemail = #{uemail}
+	</select>
+	
+	<select id="selectEmailMember" parameterType="string" resultType="Member">
+		select * from member
+		where uemail = #{uemail}
+	</select>
+		
+	<update id="updateUst" parameterType="Member">
+		update member
+		set ust='Y'
+		where uemail = #{uemail} and accesstoken = #{accesstoken}
+	</update>
+
+	<select id="chk_id" parameterType="string" resultType="_int">
+		select
+		count(*) from member where uemail = #{uemail} and signtype= 'h'
+	</select>
+
+	<select id="selectMember" parameterType="String"
+		resultType="Member">
+		select * from member where ucode = #{ucode}
+	</select>
+
+	<update id="updateInfo" parameterType="Member">
+		update member
+		set uname = #{uname}, uphone = #{uphone}, ugroup = #{ugroup}, urole =
+		#{urole}
+		where ucode = #{ucode}
+	</update>
+	
+	<update id="updateImg" parameterType="String">
+		update member
+		set uimg = #{uimg}
+		where ucode = #{ucode}
+	</update>
+
+	<update id="updatePwd" parameterType="string">
+		update member
+		set upwd = #{upwd}
+		where ucode = #{ucode}
+	</update>
+	<update id="updateTmpPwd" parameterType="string">
+		update member
+		set upwd = #{upwd}
+		where uemail = #{uemail} and signtype= 'h'
+	</update>
+	<delete id="deleteUser" parameterType="string">
+		delete member
+		where ucode = #{ucode}
+	</delete>
+
+	<insert id="insertInvtNew" parameterType="Invite">
+		merge into invite using dual on (invtemail = #{invtemail} and pnum =#{pnum})
+		when matched then
+		update set 
+        invtkey = #{invtkey}, exprtdate = sysdate+2
+        when not matched then 
+		insert 
+		values (#{invtkey}, #{ucode},#{pnum},#{invtemail}, default, default)
+	</insert>
+	
+	<select id="selectInvtChk" resultMap="resultInvite">
+		select * from invite
+		where invtkey = #{invtkey}
+	</select>
+	<select id="selectInvted" parameterType="string" resultMap="resultMember">
+		select * From invite 
+		left join member on(invtemail = uemail)
+		where uemail = #{uemail} and invtuse = 'Y'
+	</select>
+<!-- 초대회원관리 -->	
+	<select id="selectInvtList" parameterType="string" resultMap="resultInvite">
+		select * from invite
+		where pnum = #{pnum}
+	</select>
+	
+	<insert id="insertPjMember" parameterType="PjMember">
+		insert into pjmember
+		values (#{pnum}, #{ucode}, '2')
+	</insert>
+	
+	<select id="selectNotMember" parameterType="string" resultMap="resultMember"> 
+			select * from member
+		where ucode not in (
+		(select ucode from pjmember where pnum = #{pnum}))
+	</select>
+	
+	<update id="updatepjadmin" parameterType="PjMember">
+	update pjmember
+	set pjadmin= #{pjadmin}
+	where pnum=#{pnum} and ucode = #{ucode}
+	</update>
+		
+	<select id="selectPMember" parameterType="string" resultMap="resultMember"> 
+		select * from pjmember
+		left join member using (ucode)
+		where pnum = #{pnum}
+		</select>
+	
+	<insert id="insertSnsUser" parameterType="member">
+		merge into member using dual on (uemail = #{uemail} and signtype =#{signtype})
+		when matched then
+		update set 
+        uname = #{uname},  uimg = #{uimg}, ust='Y'
+        when not matched then 
+			insert (ucode, uemail, uname, uimg,signtype,ust) 
+			values ('n'||member_seq.nextval, #{uemail},#{uname},#{uimg}, #{signtype}, 'Y')
+	</insert>
+	
+	<delete id="deleteInvt" parameterType="string">
+		delete from invite
+		where invtkey = #{invtkey}
+	</delete>
+	
+	<select id="selectPjdetail" parameterType="string" resultMap="resultProject">
+		select * from project
+		where project_num = #{pnum}
+	</select>
+	
+	<update id="updatePjImg" parameterType="Project">
+		update project
+		set open = #{open}
+		where project_num = #{project_num}
+	</update>
+	
+	<update id="updatePjDetail" parameterType="Project">
+		update project
+		<if test="name != null"> set name = #{name} </if>
+		<if test="explain != null"> set explain = #{explain} </if>
+		where project_num = #{project_num}
+	</update>
+</mapper>
