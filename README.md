@@ -1,5 +1,5 @@
-# Team-Collaboration-Tool
-Team Collaboration Tool
+# Team-Collaboration-Tool-Web
+Team Collaboration Tool Web Service
 
 <h2>프로젝트 이름</h2>
 HWABO
